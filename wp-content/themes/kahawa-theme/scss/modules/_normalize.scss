@@ -1,0 +1,11 @@
+/**** normalize styles ****/
+
+html, body {
+    font-family: $mainFont;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} {
+        font-family: $headerFont;
+    }
+}

@@ -5,8 +5,6 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 
 var input = './scss/style.scss';
-var output = './coffee-wp/wp-content/themes/anfrawer';
-var outputProd = './coffee-wp/wp-content/themes/anfrawer/prod';
 
 var sassOptions = {
     errLogToConsole: true,
@@ -31,14 +29,14 @@ gulp.task('sass', function(){
     .pipe(sass(sassOptions))
     .pipe(sourcemaps.write())
     .pipe(autoprefixer())
-    .pipe(gulp.dest(output))
+    .pipe(gulp.dest(''))
 });
 
 gulp.task('sass-prod', function(){
     return gulp.src(input)
     .pipe(sass(sassProdOptions))
     .pipe(autoprefixer())
-    .pipe(gulp.dest(outputProd))
+    .pipe(gulp.dest(''))
 });
 
 gulp.task('watch', function(){

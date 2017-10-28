@@ -1,0 +1,13 @@
+/**** project mixins ****/
+
+@mixin largeScreen {
+    @media (min-width: $desktop) {
+        @content;
+    }
+}
+    
+@mixin smallScreen {
+    @media (min-width: $handheld) {
+        @content
+    }
+}

@@ -1,0 +1,66 @@
+/**** styles for header ****/
+
+.site-header {
+    @include largeScreen {
+        border-bottom: none;
+    }
+    .storefront-primary-navigation {
+        @include largeScreen {
+            border-top: 1px solid transparentize($accentColor, .8);
+            border-bottom: 1px solid transparentize($accentColor, .8);
+        }
+        .menu {
+            font-size: 0;
+            a {
+                font-size: ms(0);
+                text-transform: uppercase;
+                @include largeScreen {
+                    padding: ms(-1) ms(0);
+                }
+            }
+            .menu-item {
+                border-right: 1px solid transparentize($accentColor, .8);
+                &:first-of-type {
+                    border-left: 1px solid transparentize($accentColor, .8);
+                }
+                a {
+
+                    @include largeScreen {
+                        padding: ms(-1) ms(1);
+                    }
+                }
+            }
+        }
+        .site-header-cart {
+            &:hover {
+                > li {
+                    > a {
+                        color: $black;
+                    }
+                }
+            }
+            > li {
+                > a {
+                    &:hover {
+                        color: $gray;
+                    }
+                }
+            }
+        }
+    }
+    .secondary-navigation {
+        position: relative;
+        .cart-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: black;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            padding-top: 3px;
+            padding-left: 7px;
+        }
+    }
+}

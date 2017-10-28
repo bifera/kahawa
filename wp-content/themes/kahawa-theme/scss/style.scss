@@ -1,0 +1,28 @@
+/* 
+Theme Name: Kahawa Theme
+Version: 0.1
+Description: Child theme for Storefront. 
+Author: Justaniewska
+Author URI: http://github.com/justaniewska 
+Template: storefront 
+*/  
+
+/*******************************************************************************
+========= required SASS files ----- do not remove ==============================
+********************************************************************************
+********************************************************************************/
+
+
+/** setup files **/
+@import '../node_modules/modularscale-sass/stylesheets/modularscale';
+@import '../node_modules/susy/sass/susy';
+@import 'modules/variables.scss';
+@import 'modules/normalize.scss';
+@import 'modules/mixins.scss';
+@import 'modules/functions.scss';
+
+/** styles **/
+@import 'partials/header.scss';
+@import 'partials/footer.scss';
+@import 'partials/content.scss';
+@import 'partials/product.scss';
