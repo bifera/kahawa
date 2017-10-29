@@ -16,17 +16,22 @@ $susy: (
 
 /*** typography ***/
 $mainFont: 'Lato', sans-serif;
-$headerFont: 'Quando', serif;
+$headerFont: 'Open Sans Condensed', sans-serif;
 
 
 /*** colors ***/
 $primaryColor: #fff;
 $secondaryColor: #dfd3ad;
+$altColor: #35271a;
 $accentColor: darken($secondaryColor, 60%);
+
+$fontColor: #232323;
 
 $black: #000;
 $white: #fff;
 $gray: #838383;
+$brown: #35271a;
+$gold: #CD853F;
 
 /*** layout ***/
 $desktop:			768px;

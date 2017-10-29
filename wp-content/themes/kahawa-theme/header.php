@@ -4,10 +4,17 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package storefront
+ * kahawa child theme for storefront
  */
 
-?><!doctype html>
+?>
+
+<?php 
+
+$headerBg = get_the_post_thumbnail_url(get_option( 'page_on_front' ));
+
+?>
+<!doctype html>
 <html <?php language_attributes(); ?>>
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -25,8 +32,8 @@
         <div id="page" class="hfeed site">
             <?php do_action( 'storefront_before_header' ); ?>
 
-            <header id="masthead" class="site-header" role="banner" style="<?php storefront_header_styles(); ?>">
-                <div class="col-full">
+            <header id="masthead" class="site-header" role="banner" style="<?php if (! is_front_page()){echo "background-image:url(".$headerBg.");"; } else {storefront_header_styles();}?>">
+                <div class="col-full kahawa-header-content">
                     <?php
                     /**
 			 * Functions hooked into storefront_header action
@@ -44,8 +51,6 @@
 
                     do_action( 'storefront_header' );
                     ?>
-
-
                 </div>
             </header><!-- #masthead -->
 
@@ -55,12 +60,12 @@
 	 *
 	 * @hooked storefront_header_widget_region - 10
 	 */
-
-            do_action( 'storefront_before_content' );
+    do_action( 'storefront_before_content' );
+            
             ?>
 
             <div id="content" class="site-content" tabindex="-1">
-                <div class="col-full">
+                <div class="col-full <?php if (is_page_template('template-main.php')) {echo 'homepage-content'; }?>">
 
                     <?php
                     /**
@@ -68,4 +73,6 @@
 		 *
 		 * @hooked woocommerce_breadcrumb - 10
 		 */
-                    do_action( 'storefront_content_top' );
+                        do_action( 'storefront_content_top' );
+
+                    

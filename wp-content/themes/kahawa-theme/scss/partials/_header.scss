@@ -1,14 +1,106 @@
 /**** styles for header ****/
 
+.page-template-template-main, .page-template-template-subpage, .page-template-wydarzenie-archive, .page-template-default, .product-template-default, .archive {
+    position: relative;
+    .site-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: transparent;
+    }
+    .kahawa-header-content {
+        min-height: 50px;
+        position: relative;
+        & .site-branding {
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding-left: ms(0);
+            max-width: 150px;
+        }
+        & .storefront-primary-navigation {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            padding: 0 0 0 230px;
+            margin: 0;
+            clear: none;
+            .main-navigation {
+                width: 100%;
+                margin: 0;
+            }
+            .menu {
+                float: right;
+                padding-top: 5px;
+                a {
+                    color: $white;
+                    &:hover {
+                        background-color: transparentize($secondaryColor, .2);
+                        color: $black;
+                    }
+                }
+                > li:last-child {
+                    margin-right: -1 * ms(1);
+                }
+            }
+        }
+    }
+}
+
+.kahawa-header-cart {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.page-template-template-main, .page-template-template-subpage, .page-template-wydarzenie-archive {
+    .kahawa-header-cart {
+        display: none;
+    }
+}
+
+.page-template-template-subpage, .page-template-wydarzenie-archive, .archive, .page-template-default, .product-template-default {
+    .site-header {
+        padding: ms(2) 0;
+        background-position: center center;
+    }
+}
+
+.archive, .page-template-default, .product-template-default {
+    .main-navigation {
+        padding-right: ms(5);
+    }
+    .kahawa-header-cart {
+        > li {
+            display: inline-block;
+            a {
+                display: block;
+                position: relative;
+                span {
+                    color: black;
+                    background-color: white;
+                    position: absolute;
+                    top: -2px;
+                    right: 2px;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 50%;
+                    padding: 3px 5px;
+                    line-height: 1;
+                    font-size: 14px;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
 .site-header {
     @include largeScreen {
         border-bottom: none;
     }
     .storefront-primary-navigation {
-        @include largeScreen {
-            border-top: 1px solid transparentize($accentColor, .8);
-            border-bottom: 1px solid transparentize($accentColor, .8);
-        }
         .menu {
             font-size: 0;
             a {
@@ -19,10 +111,6 @@
                 }
             }
             .menu-item {
-                border-right: 1px solid transparentize($accentColor, .8);
-                &:first-of-type {
-                    border-left: 1px solid transparentize($accentColor, .8);
-                }
                 a {
 
                     @include largeScreen {

@@ -8,6 +8,24 @@
     
 @mixin smallScreen {
     @media (min-width: $handheld) {
-        @content
+        @content;
     }
+}
+
+/**** extend silent classes ****/
+
+%cf {
+    &::after {
+        display: block;
+        clear: both;
+        content: "";
+    }
+}
+
+%container-padding {
+    padding: 0 ms(-1);
+}
+
+%box-sizing {
+    box-sizing: border-box;
 }

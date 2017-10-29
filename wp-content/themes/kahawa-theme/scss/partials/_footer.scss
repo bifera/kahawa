@@ -2,4 +2,21 @@
 
 .site-footer {
     background-color: $secondaryColor;
+    .map-widget {
+        height: 350px;
+    }
+    .kahawa-footer-widget {
+        h5 {
+            font-weight: 700;
+        }
+        a {
+            &:hover {
+                color: $gold;
+            }
+        }
+        .fa {
+            font-size: ms(1);
+            margin-right: ms(0);
+        }
+    }
 }

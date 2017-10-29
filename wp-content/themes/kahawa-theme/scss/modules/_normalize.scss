@@ -1,5 +1,9 @@
 /**** normalize styles ****/
 
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     font-family: $mainFont;
 }
@@ -7,5 +11,53 @@ html, body {
 @for $i from 1 through 6 {
     h#{$i} {
         font-family: $headerFont;
+        font-size: (6/$i)*1rem;
+        margin-bottom: ms(0);
+        color: $fontColor;
+    }
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: ms(0);
+    color: $fontColor;
+}
+
+.col-full {
+    @extend %container-padding;
+    @extend %box-sizing;
+    width: 1200px;
+    max-width: 1200px;
+}
+
+.col-half {
+    @extend %container-padding;
+    width: 50%;
+    float: left;
+}
+
+.kahawa-row {
+    margin-left: -1 * ms(-1);
+    margin-right: -1 * ms(-1);
+    @extend %cf;
+}
+
+.button {
+    text-transform: uppercase;
+    font-family: $headerFont;
+    font-weight: 700;
+    &-open {
+        background-color: transparentize($altColor, .55);
+        border: 2px solid $white;
+        color: $white;
+        border-radius: 5px;
+        &:hover {
+            background-color: transparentize($secondaryColor, .2);
+            color: $black;
+            border-color: $secondaryColor;
+        }
     }
 }
