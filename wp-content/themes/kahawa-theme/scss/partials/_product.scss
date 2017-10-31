@@ -1,9 +1,14 @@
 /**** styles for single product ****/
+.quantity {
+    input.qty {
+        padding: ms(0);
+        line-height: 1;
+    }
+}
 
-.products {
-    .product {
-        img {
-            border-radius: 100%;
-        }
+.coupon {
+    input.input-text {
+        padding: ms(0);
+        line-height: 1;
     }
 }

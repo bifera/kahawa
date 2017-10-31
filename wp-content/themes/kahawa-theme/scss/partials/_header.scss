@@ -1,154 +1,160 @@
 /**** styles for header ****/
 
-.page-template-template-main, .page-template-template-subpage, .page-template-wydarzenie-archive, .page-template-default, .product-template-default, .archive {
-    position: relative;
+.site-header {
+    width: 100%;
+    background-color: $secondaryColor;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-bottom: 0!important;
+    border: none;
+    z-index: 9999;
+}
+.home {
     .site-header {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: transparent;
+        background-color: transparentize($secondaryColor, .4);
     }
-    .kahawa-header-content {
-        min-height: 50px;
-        position: relative;
-        & .site-branding {
+}
+
+.kahawa-header-content {
+    position: relative;
+    min-height: 70px;
+    @include largeScreen {
+        min-height: 130px;
+    }
+    .site-branding {
+        float: left;
+        margin: 0;
+        padding: 0;
+        z-index: 999;
+        @include largeScreen {
+            float: none;
             position: absolute;
             left: 0;
-            top: 0;
-            padding-left: ms(0);
-            max-width: 150px;
+            bottom: 25px;
+            margin: 0;
         }
-        & .storefront-primary-navigation {
+        img {
+            max-width: 130px;
+            height: auto;
+            margin: 0 auto;
+            @include largeScreen {
+                max-width: 180px;
+                margin: 0;
+            }
+        }
+    }
+    .storefront-primary-navigation {
+        text-align: center;
+        margin-top: 20px;
+        @include largeScreen {
+            text-align: left;
             position: absolute;
-            top: 0;
+            bottom: 25px;
             right: 0;
             width: 100%;
             padding: 0 0 0 230px;
             margin: 0;
-            clear: none;
-            .main-navigation {
-                width: 100%;
-                margin: 0;
-            }
             .menu {
-                float: right;
-                padding-top: 5px;
-                a {
-                    color: $white;
-                    &:hover {
-                        background-color: transparentize($secondaryColor, .2);
-                        color: $black;
+                .current-menu-item {
+                    a {
+                        color: $gold;
                     }
                 }
-                > li:last-child {
-                    margin-right: -1 * ms(1);
-                }
+            }
+        }
+        .main-navigation {
+            width: 100%;
+            margin: 0;
+            float: none;
+        }
+    }
+}
+
+.main-navigation {
+    .menu-toggle {
+        float: right;
+    }
+    &.toggled {
+        width: 100%;
+        min-height: 70vh;
+        .handheld-navigation {
+            max-height: inherit;
+            >ul {
+                float: none;
+                text-align: center;
+                width: 100%;
+            }
+        }
+    }
+    .handheld-navigation {
+
+    }
+    .menu {
+        float: right;
+        a {
+            color: $fontColor;
+            font-size: ms(0);
+            font-weight: 700;
+            padding: ms(0) ms(1);
+            &:hover {
+                color: $gold;
             }
         }
     }
 }
 
 .kahawa-header-cart {
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-.page-template-template-main, .page-template-template-subpage, .page-template-wydarzenie-archive {
-    .kahawa-header-cart {
-        display: none;
-    }
+    display: none;
 }
 
-.page-template-template-subpage, .page-template-wydarzenie-archive, .archive, .page-template-default, .product-template-default {
-    .site-header {
-        padding: ms(2) 0;
-        background-position: center center;
-    }
-}
 
-.archive, .page-template-default, .product-template-default {
-    .main-navigation {
-        padding-right: ms(5);
-    }
-    .kahawa-header-cart {
-        > li {
-            display: inline-block;
-            a {
-                display: block;
-                position: relative;
-                span {
-                    color: black;
-                    background-color: white;
-                    position: absolute;
-                    top: -2px;
-                    right: 2px;
-                    width: 20px;
-                    height: 20px;
-                    border-radius: 50%;
-                    padding: 3px 5px;
-                    line-height: 1;
-                    font-size: 14px;
-                    font-weight: 700;
-                }
-            }
-        }
-    }
-}
-
-.site-header {
+.post-type-archive-product, .single-product, .woocommerce-cart, .woocommerce-account, .woocommerce-checkout, .tax-product_cat {
     @include largeScreen {
-        border-bottom: none;
-    }
-    .storefront-primary-navigation {
-        .menu {
-            font-size: 0;
-            a {
-                font-size: ms(0);
-                text-transform: uppercase;
-                @include largeScreen {
-                    padding: ms(-1) ms(0);
-                }
-            }
-            .menu-item {
-                a {
-
-                    @include largeScreen {
-                        padding: ms(-1) ms(1);
-                    }
-                }
-            }
-        }
-        .site-header-cart {
-            &:hover {
-                > li {
-                    > a {
-                        color: $black;
-                    }
-                }
-            }
-            > li {
-                > a {
-                    &:hover {
-                        color: $gray;
-                    }
-                }
-            }
-        }
-    }
-    .secondary-navigation {
-        position: relative;
-        .cart-button {
+        .main-navigation {
+            padding-right: 165px;
             position: absolute;
-            top: 0;
-            right: 0;
-            background-color: black;
-            color: white;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            padding-top: 3px;
-            padding-left: 7px;
+            left: 0;
+            bottom: 0;
+        }
+        .kahawa-header-cart {
+            @include largeScreen {
+                display: block;
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                margin: 0;
+                .kahawa-cart-link {
+                    position: relative;
+                    span {
+                        position: absolute;
+                        top: 15px;
+                        right: 1px;
+                        width: 20px;
+                        height: 20px;
+                        background-color: transparentize($darkgray, .25);
+                        color: $gold;
+                        border-radius: 50%;
+                        font-size: .875rem;
+                        line-height: 1;
+                        font-weight: 700;
+                        padding-left: 6px;
+                        padding-top: 3px;
+                    }
+                }
+                > li {
+                    display: inline-block;
+                    list-style-type: none;
+                    a {
+                        padding: ms(1) ms(0);
+                        display: block;
+                        &:hover {
+                            color: $gold;
+                        }
+                    }
+                }
+            }
         }
     }
 }

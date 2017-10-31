@@ -11,7 +11,7 @@ html, body {
 @for $i from 1 through 6 {
     h#{$i} {
         font-family: $headerFont;
-        font-size: (6/$i)*1rem;
+        font-size: (4.5/$i)*1rem;
         margin-bottom: ms(0);
         color: $fontColor;
     }
@@ -26,17 +26,40 @@ p {
     color: $fontColor;
 }
 
-.col-full {
-    @extend %container-padding;
-    @extend %box-sizing;
-    width: 1200px;
-    max-width: 1200px;
+a {
+    color: $gold;
+    &:hover{
+        color: $darkgray;
+    }
 }
 
-.col-half {
-    @extend %container-padding;
-    width: 50%;
-    float: left;
+textarea {
+    resize: none;
+}
+
+.button, button, button.menu-toggle, button.alt, .button.alt, .button, input[type="submit"].button {
+    font-weight: 700;
+    line-height: 1;
+    padding: ms(0) ms(2);
+    border-radius: 5px;
+    border: 2px solid $darkgray;
+    background-color: transparent;
+    color: $darkgray;
+    &:hover {
+        background-color: transparent;
+        border-color: $gold;
+        color: $gold;
+    }
+    &-open {
+        background-color: transparentize($altColor, .55);
+        border: 2px solid $white;
+        color: $white;
+        &:hover {
+            background-color: transparentize($secondaryColor, .2);
+            color: $black;
+            border-color: $secondaryColor;
+        }
+    }
 }
 
 .kahawa-row {
@@ -45,19 +68,19 @@ p {
     @extend %cf;
 }
 
-.button {
-    text-transform: uppercase;
-    font-family: $headerFont;
-    font-weight: 700;
-    &-open {
-        background-color: transparentize($altColor, .55);
-        border: 2px solid $white;
-        color: $white;
-        border-radius: 5px;
-        &:hover {
-            background-color: transparentize($secondaryColor, .2);
-            color: $black;
-            border-color: $secondaryColor;
-        }
+.col-full {
+    @extend %container-padding;
+    @extend %box-sizing;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.col-half {
+    @extend %container-padding;
+    width: 100%;
+    @include largeScreen {
+        width: 50%;
+        float: left;
     }
 }

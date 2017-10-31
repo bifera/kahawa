@@ -32,7 +32,7 @@ $headerBg = get_the_post_thumbnail_url(get_option( 'page_on_front' ));
         <div id="page" class="hfeed site">
             <?php do_action( 'storefront_before_header' ); ?>
 
-            <header id="masthead" class="site-header" role="banner" style="<?php if (! is_front_page()){echo "background-image:url(".$headerBg.");"; } else {storefront_header_styles();}?>">
+            <header id="masthead" class="site-header" role="banner">
                 <div class="col-full kahawa-header-content">
                     <?php
                     /**

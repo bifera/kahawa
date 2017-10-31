@@ -1,5 +1,21 @@
 /**** styles for page content ****/
 
+body:not(.home){
+    .site-content {
+        padding-top: 90px;
+        @include largeScreen {
+            padding-top: 130px;
+        }
+    }
+}
+
+.woocommerce-breadcrumb {
+    a, a:visited {
+        color: $gold;
+    }
+    margin-bottom: ms(1);
+}
+
 
 .col-full {
     &.homepage-content {
@@ -23,38 +39,61 @@
         background-position: center center;
         background-repeat: no-repeat;
         position: relative;
-        &::after{
+        &::after {
             width: 100%;
             height: 100%;
-            background-color: transparentize($brown, .8);
             display: block;
             content: "";
+            background-color: transparentize($gray, .85);
+            position: absolute;
+            top: 0;
+            left: 0;
         }
-    }
-    .kahawa-intro {
-        text-align: center;
-        width: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        .kahawa-title {
-            margin-bottom: 20px;
-            img {
-                max-width: 580px;
-                margin: auto;
-            }
-        }
-        .kahawa-subtitle {
-            text-transform: uppercase;
-            font-size: ms(1);
-            color: $white;
-            max-width: ms(8);
-            margin: 0 auto ms(2) auto;
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background-repeat: repeat;
+            opacity: .55;
         }
     }
     .kahawa-content {
         padding-top: 4rem;
+    }
+}
+
+.kahawa-intro {
+    text-align: center;
+    width: 100%;
+    padding-top: 130px;
+    padding-bottom: 70px;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include largeScreen {
+        padding-bottom: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    .site-title, .site-subtitle {
+        color: $white;
+        line-height: 1;
+    }
+    .kahawa-title {
+        margin-bottom: 20px;
+        img {
+            max-width: 580px;
+            margin: auto;
+        }
+    }
+    .kahawa-subtitle {
+        text-transform: uppercase;
+        font-size: ms(1);
+        color: $white;
+        max-width: ms(8);
+        margin: 0 auto ms(2) auto;
     }
 }
 

@@ -13,19 +13,19 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 			<?php while ( have_posts() ) : the_post();
-            the_content();
+            //the_content();
 
-				/*do_action( 'storefront_page_before' );
+				do_action( 'storefront_page_before' );
 
-				get_template_part( 'content', 'page' );*/
+				get_template_part( 'content', 'page' );
 
 				/**
 				 * Functions hooked in to storefront_page_after action
 				 *
 				 * @hooked storefront_display_comments - 10
 				 */
-				/*do_action( 'storefront_page_after' );
-*/
+				do_action( 'storefront_page_after' );
+
 			endwhile; // End of the loop. ?>
 
 		</main><!-- #main -->

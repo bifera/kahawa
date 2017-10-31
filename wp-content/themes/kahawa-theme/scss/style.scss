@@ -17,8 +17,8 @@ Template: storefront
 @import '../node_modules/modularscale-sass/stylesheets/modularscale';
 @import '../node_modules/susy/sass/susy';
 @import 'modules/variables.scss';
-@import 'modules/normalize.scss';
 @import 'modules/mixins.scss';
+@import 'modules/normalize.scss';
 @import 'modules/functions.scss';
 
 /** styles **/

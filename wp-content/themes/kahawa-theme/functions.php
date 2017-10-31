@@ -26,7 +26,7 @@ if ( ! function_exists( 'kahawa_display_custom_header_cart' ) ) {
     function kahawa_display_custom_header_cart() {
         if (storefront_is_woocommerce_activated()){ ?>
 <ul id="kahawa-header-cart" class="kahawa-header-cart menu">
-    <li class="<?php echo esc_attr( $class ); ?> hooked">
+    <li class="<?php echo esc_attr( $class ); ?> kahawa-cart-link">
         <a href="<?php echo wc_get_cart_url(); ?>"><i class="fa fa-coffee" title="Mój koszyk"></i><span><?php echo WC()->cart->get_cart_contents_count();?></span></a>
 
     </li>
@@ -44,13 +44,23 @@ if ( ! function_exists( 'kahawa_display_custom_header_cart' ) ) {
     }
 }
 
+if ( ! function_exists( 'kahawa_site_branding' ) ) {
+    function kahawa_site_branding(){ ?>
+        <div class="site-branding">
+			<a href="<?php echo site_url(); ?>" title="Kahawa Kawa i Książka"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-black.png" alt="Kahawa Kawa i Książka"></a>
+		</div> <?php
+    }
+}
+
 // ------ the hook
 
 add_action( 'init', 'kahawa_custom_menu_appearance');
 function kahawa_custom_menu_appearance() {
     remove_action( 'storefront_header', 'storefront_header_cart', 60 );
     remove_action( 'storefront_header', 'storefront_product_search', 40);
+    remove_action( 'storefront_header', 'storefront_site_branding', 20);
     add_action( 'storefront_header', 'kahawa_display_custom_header_cart', 60 );
+    add_action( 'storefront_header', 'kahawa_site_branding', 20 );
 }
 
 
