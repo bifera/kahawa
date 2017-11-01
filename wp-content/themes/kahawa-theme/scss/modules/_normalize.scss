@@ -19,6 +19,9 @@ html, body {
 
 h1, h2, h3 {
     font-weight: 700;
+    & > a {
+        font-weight: 700;
+    }
 }
 
 p {
@@ -78,9 +81,20 @@ textarea {
 
 .col-half {
     @extend %container-padding;
+    @extend %box-sizing;
     width: 100%;
     @include largeScreen {
         width: 50%;
+        float: left;
+    }
+}
+
+.col-third {
+    @extend %container-padding;
+    @extend %box-sizing;
+    width: 100%;
+    @include largeScreen {
+        width: 33.3333%;
         float: left;
     }
 }

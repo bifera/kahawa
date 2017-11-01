@@ -8,6 +8,14 @@ wp_enqueue_style( 'kahawa-custom-fonts', 'https://fonts.googleapis.com/css?famil
 wp_enqueue_script( "kahawa-scripts", get_stylesheet_directory_uri().'/scripts/app.js' );
 
 
+
+
+function kahawa_custom_image_sizes(){
+    add_theme_support( 'post-thumbnails' );
+    add_image_size('wydarzenie', 650, 650, true);
+}
+add_action( 'after_setup_theme', 'kahawa_custom_image_sizes' );
+
 /*****************************************/
 /** add kahawa custom header appearance **/
 /*****************************************/
@@ -46,10 +54,10 @@ if ( ! function_exists( 'kahawa_display_custom_header_cart' ) ) {
 
 if ( ! function_exists( 'kahawa_site_branding' ) ) {
     function kahawa_site_branding(){ ?>
-        <div class="site-branding">
-			<a href="<?php echo site_url(); ?>" title="Kahawa Kawa i Książka"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-black.png" alt="Kahawa Kawa i Książka"></a>
-		</div> <?php
-    }
+<div class="site-branding">
+    <a href="<?php echo site_url(); ?>" title="Kahawa Kawa i Książka"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-black.png" alt="Kahawa Kawa i Książka"></a>
+</div> <?php
+                                   }
 }
 
 // ------ the hook
@@ -61,6 +69,16 @@ function kahawa_custom_menu_appearance() {
     remove_action( 'storefront_header', 'storefront_site_branding', 20);
     add_action( 'storefront_header', 'kahawa_display_custom_header_cart', 60 );
     add_action( 'storefront_header', 'kahawa_site_branding', 20 );
+}
+
+
+/*****************************************/
+/******* remove breadcrumbs **************/
+/*****************************************/
+
+add_action('init', 'kahawa_custom_content_appearance');
+function kahawa_custom_content_appearance(){
+    remove_action( 'storefront_content_top', 'woocommerce_breadcrumb', 10 );
 }
 
 

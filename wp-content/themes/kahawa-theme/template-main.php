@@ -26,7 +26,7 @@ if (has_post_thumbnail()) {
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-        <div class="hero" style="background-image: url(<?php echo $image;?>);">
+        <div class="kahawa-hero" style="background-image: url(<?php echo $image;?>);">
             <div class="overlay" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/texture.svg);"></div>
             <?php 
             if (get_field('czy_wlasny_naglowek') == 1) {

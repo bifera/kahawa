@@ -11,7 +11,7 @@
     border: none;
     z-index: 9999;
 }
-.home {
+.home, .page {
     .site-header {
         background-color: transparentize($secondaryColor, .4);
     }
@@ -65,9 +65,11 @@
             }
         }
         .main-navigation {
-            width: 100%;
-            margin: 0;
             float: none;
+            @include largeScreen{
+                width: 100%;
+                margin: 0;
+            }
         }
     }
 }
@@ -75,21 +77,25 @@
 .main-navigation {
     .menu-toggle {
         float: right;
-    }
-    &.toggled {
-        width: 100%;
-        min-height: 70vh;
-        .handheld-navigation {
-            max-height: inherit;
-            >ul {
-                float: none;
-                text-align: center;
-                width: 100%;
-            }
+        background-color: $secondaryColor;
+        &:hover, &:active {
+            background-color: $secondaryColor;
         }
     }
-    .handheld-navigation {
-
+    &.toggled {
+        .handheld-navigation {
+            max-height: inherit;
+            background-color: transparentize($secondaryColor, .2);
+            > ul {
+                float: none;
+                text-align: center;
+                .current-menu-item {
+                    a {
+                        color: $gold;
+                    }
+                }
+            }
+        }
     }
     .menu {
         float: right;

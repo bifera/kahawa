@@ -35,7 +35,7 @@ function custom_post_type() {
 		'label'                 => __( 'Wydarzenie', 'text_domain' ),
 		'description'           => __( 'Opis Wydarzenia', 'text_domain' ),
 		'labels'                => $labels,
-		'supports'              => array( ),
+		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,

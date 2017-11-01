@@ -65,8 +65,7 @@ $headerBg = get_the_post_thumbnail_url(get_option( 'page_on_front' ));
             ?>
 
             <div id="content" class="site-content" tabindex="-1">
-                <div class="col-full <?php if (is_page_template('template-main.php')) {echo 'homepage-content'; }?>">
-
+                <div class="<?php if (is_page_template('template-main.php')) {echo 'homepage-content'; } elseif (is_page_template('template-subpage.php') || is_page_template('wydarzenie-archive.php')) {echo 'subpage-content';} else {echo 'col-full'; }?>">
                     <?php
                     /**
 		 * Functions hooked in to storefront_content_top

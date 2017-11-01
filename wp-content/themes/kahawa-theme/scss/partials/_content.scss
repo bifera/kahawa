@@ -2,9 +2,11 @@
 
 body:not(.home){
     .site-content {
-        padding-top: 90px;
-        @include largeScreen {
-            padding-top: 130px;
+        > .col-full {
+            padding-top: 90px;
+            @include largeScreen {
+                padding-top: 130px;
+            }
         }
     }
 }
@@ -31,8 +33,8 @@ body:not(.home){
         }
     }
 }
-.content-area {
-    .hero {
+.homepage-content {
+    .kahawa-hero {
         width: 100%;
         height: 100vh;
         background-size: cover;
@@ -97,13 +99,96 @@ body:not(.home){
     }
 }
 
+.page-template-template-subpage, .page-template-template-main, .page-template-wydarzenie-archive, .single-wydarzenie {
+    .content-area {
+        float: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}
 
-.single-wydarzenie {
-    .site-content {
-        .content-area {
+.subpage-content {
+    .kahawa-hero {
+        width: 100%;
+        height: 250px;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        @include largeScreen {
+            height: 380px;
+            margin-bottom: 60px;
+        }
+        &::after {
             width: 100%;
-            float: none;
-            margin-right: 0;
+            height: 100%;
+            display: block;
+            content: "";
+            background-color: transparentize($gray, .85);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .overlay {
+            width: 100%;
+            height: 100%;
+            background-repeat: repeat;
+            opacity: .55;
+        }
+        .subpage-title {
+            position: absolute;
+            bottom: 25px;
+            color: $white;
+            line-height: 1;
+            @include largeScreen {
+                bottom: 60px;
+            }
+        }
+    }
+}
+
+.single-tab {
+    width: 100%;
+    height: 100%;
+    padding: ms(1);
+    background-color: $white;
+    .wydarzenie-title {
+        padding: ms(0) 0;
+        font-size: ms(1);
+        text-align: center;
+        &::after {
+            display: block;
+            content: "";
+            width: 50%;
+            height: 1px;
+            background-color: $gray;
+            margin: ms(0) auto 0;
+        }
+    }
+    .wydarzenie-details {
+        p {
+            font-size: .875rem;
+            color: $darkgray;
+        }
+    }
+    .wydarzenie-accent {
+        font-weight: 700;
+    }
+    .wydarzenie-link {
+        text-align: right;
+        a {
+            font-weight: 700;
+            &::after {
+                display: inline-block;
+                content: "";
+                width: 5px;
+                height: 5px;
+                border-top: 1px solid $gold;
+                border-right: 1px solid $gold;
+                transform: rotate(45deg);
+                margin-left: 5px;
+            }
         }
     }
 }
