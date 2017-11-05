@@ -1,39 +1,16 @@
 /**** styles for page content ****/
 
-body:not(.home){
-    .site-content {
-        > .col-full {
-            padding-top: 90px;
-            @include largeScreen {
-                padding-top: 130px;
-            }
-        }
-    }
-}
-
-.woocommerce-breadcrumb {
-    a, a:visited {
-        color: $gold;
-    }
-    margin-bottom: ms(1);
-}
-
-
-.col-full {
-    &.homepage-content {
+.page-template-template-subpage, .page-template-template-main {
+    .content-area {
+        float: none;
         width: 100%;
-        max-width: 100%;
         padding: 0;
         margin: 0;
-        .content-area {
-            width: 100%;
-            float: none;
-            padding: 0;
-            margin: 0;
-        }
     }
 }
+
 .homepage-content {
+    width: 100%;
     .kahawa-hero {
         width: 100%;
         height: 100vh;
@@ -99,96 +76,28 @@ body:not(.home){
     }
 }
 
-.page-template-template-subpage, .page-template-template-main, .page-template-wydarzenie-archive, .single-wydarzenie {
-    .content-area {
-        float: none;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-}
-
-.subpage-content {
-    .kahawa-hero {
-        width: 100%;
-        height: 250px;
-        background-position: center bottom;
-        background-repeat: no-repeat;
-        background-size: cover;
+body:not(.home) {
+    .site-main {
         position: relative;
-        @include largeScreen {
-            height: 380px;
-            margin-bottom: 60px;
-        }
-        &::after {
-            width: 100%;
-            height: 100%;
-            display: block;
-            content: "";
-            background-color: transparentize($gray, .85);
+        .woocommerce-products-header, .entry-header {
             position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .overlay {
-            width: 100%;
-            height: 100%;
-            background-repeat: repeat;
-            opacity: .55;
-        }
-        .subpage-title {
-            position: absolute;
-            bottom: 25px;
-            color: $white;
-            line-height: 1;
-            @include largeScreen {
-                bottom: 60px;
+            top: -100px;
+            .page-title, .subpage-title, .entry-title {
+                color: $white;
+            }
+            +.entry-content {
+                padding-top: 60px;
             }
         }
+
+    }
+    .widget-area {
+        padding-top: 60px;
     }
 }
 
-.single-tab {
-    width: 100%;
-    height: 100%;
-    padding: ms(1);
-    background-color: $white;
-    .wydarzenie-title {
-        padding: ms(0) 0;
-        font-size: ms(1);
-        text-align: center;
-        &::after {
-            display: block;
-            content: "";
-            width: 50%;
-            height: 1px;
-            background-color: $gray;
-            margin: ms(0) auto 0;
-        }
-    }
-    .wydarzenie-details {
-        p {
-            font-size: .875rem;
-            color: $darkgray;
-        }
-    }
-    .wydarzenie-accent {
-        font-weight: 700;
-    }
-    .wydarzenie-link {
-        text-align: right;
-        a {
-            font-weight: 700;
-            &::after {
-                display: inline-block;
-                content: "";
-                width: 5px;
-                height: 5px;
-                border-top: 1px solid $gold;
-                border-right: 1px solid $gold;
-                transform: rotate(45deg);
-                margin-left: 5px;
-            }
-        }
+.post-type-archive-product, .single-product {
+    .site-main, .widget-area {
+        padding-top: 60px;
     }
 }

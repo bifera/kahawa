@@ -19,23 +19,26 @@ get_header(); ?>
         }
 
         ?>
-        <h1><?php echo $title; ?></h1>
+        <div class="entry-header">
+            <h1 class="page-title"><?php echo $title; ?></h1>
+        </div>
+        <div class="entry-content">
 
-        <?php 
-        if (get_field('wydarzenie_miejsce')){ ?>
-        <div>Miejsce wydarzenia: <span><?php echo get_field('wydarzenie_miejsce'); ?></span></div>
-        <?php } else { ?>
-        <div>Miejsce wydarzenia: <span>wkrótce</span></div>
-        <?php }?>
-        <?php 
-        if (get_field('wydarzenie_data')){ ?>
-        <div>Data wydarzenia: <span><?php echo get_field('wydarzenie_data');?></span></div>
-        <?php } else { ?>
-        <div>Data wydarzenia: <span>wkrótce</span></div>
-        <?php } ?>
+            <?php 
+            if (get_field('wydarzenie_miejsce')){ ?>
+            <div>Miejsce wydarzenia: <span><?php echo get_field('wydarzenie_miejsce'); ?></span></div>
+            <?php } else { ?>
+            <div>Miejsce wydarzenia: <span>wkrótce</span></div>
+            <?php }?>
+            <?php 
+            if (get_field('wydarzenie_data')){ ?>
+            <div>Data wydarzenia: <span><?php echo get_field('wydarzenie_data');?></span></div>
+            <?php } else { ?>
+            <div>Data wydarzenia: <span>wkrótce</span></div>
+            <?php } ?>
 
-        <?php the_content(); ?>
-
+            <?php the_content(); ?>
+        </div>
         <?php
         endwhile; // End of the loop. ?>
 

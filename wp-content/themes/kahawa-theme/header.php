@@ -11,8 +11,17 @@
 
 <?php 
 
-$headerBg = get_the_post_thumbnail_url(get_option( 'page_on_front' ));
-
+if (get_post_type() == 'product') {
+    $shop = get_option('woocommerce_shop_page_id');
+    $array =  wp_get_attachment_image_src( get_post_thumbnail_id( $shop ), 'full');
+    $heroImage = $array[0];
+} else {
+    if (has_post_thumbnail()) {
+        $heroImage = get_the_post_thumbnail_url();
+    } else {
+        $heroImage = get_stylesheet_directory_uri().'/images/hero-1.jpg';
+    }
+}
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -31,7 +40,12 @@ $headerBg = get_the_post_thumbnail_url(get_option( 'page_on_front' ));
 
         <div id="page" class="hfeed site">
             <?php do_action( 'storefront_before_header' ); ?>
-
+                <?php 
+            if (!is_page(get_option('page_on_front'))){ ?>
+                <div class="kahawa-hero" style="background-image:url(<?php echo $heroImage;?>);">
+                     <div class="overlay" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/texture.svg);"></div>
+                </div>
+                <?php }?>
             <header id="masthead" class="site-header" role="banner">
                 <div class="col-full kahawa-header-content">
                     <?php
@@ -60,18 +74,17 @@ $headerBg = get_the_post_thumbnail_url(get_option( 'page_on_front' ));
 	 *
 	 * @hooked storefront_header_widget_region - 10
 	 */
-    do_action( 'storefront_before_content' );
-            
+            do_action( 'storefront_before_content' );
+
             ?>
 
             <div id="content" class="site-content" tabindex="-1">
-                <div class="<?php if (is_page_template('template-main.php')) {echo 'homepage-content'; } elseif (is_page_template('template-subpage.php') || is_page_template('wydarzenie-archive.php')) {echo 'subpage-content';} else {echo 'col-full'; }?>">
+                <div class="<?php if (is_page_template('template-main.php')) {echo 'homepage-content'; } else {echo 'col-full';} ?>">
                     <?php
                     /**
 		 * Functions hooked in to storefront_content_top
 		 *
 		 * @hooked woocommerce_breadcrumb - 10
 		 */
-                        do_action( 'storefront_content_top' );
+                    do_action( 'storefront_content_top' );
 
-                    

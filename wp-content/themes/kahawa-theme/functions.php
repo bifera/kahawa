@@ -109,7 +109,31 @@ if ( ! function_exists( 'kahawa_footer_credit' ) ) {
 add_action('widgets_init', 'kahawa_sidebars');
 if ( ! function_exists('kahawa_sidebars')) {
     function kahawa_sidebars(){
-        register_sidebars(2, array('name'=>'Footer Panel %d', 'id'=>'footer-panel-%d', 'before_widget'=>'<div class="kahawa-footer-widget">', 'after_widget'=>'</div>'));
+
+
+
+        $argsS01 = array(
+            'name'          => __( 'Footer panel 1', 'Kahawa' ),
+            'id'            => 'footer-panel-01',
+            'description'   => '',
+            'class'         => '',
+            'before_widget' => '<div class="kahawa-footer-widget">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widgettitle">',
+            'after_title'   => '</h2>' );    
+
+        $argsS02 = array(
+            'name'          => __( 'Footer panel 2', 'Kahawa' ),
+            'id'            => 'footer-panel-02',
+            'description'   => '',
+            'class'         => '',
+            'before_widget' => '<div class="kahawa-footer-widget">',
+            'after_widget'  => '</div>',
+            'before_title'  => '<h2 class="widgettitle">',
+            'after_title'   => '</h2>' );    
+
+        register_sidebar($argsS01);
+        register_sidebar($argsS02);
     }
 }
 
@@ -125,8 +149,8 @@ if ( ! function_exists( 'kahawa_footer_widgets' ) ) {
     function kahawa_footer_widgets() {
         if (storefront_is_woocommerce_activated()){ ?>
 <div class="kahawa-row">
-    <div class="col-half"><?php dynamic_sidebar('footer-panel-1');?></div>
-    <div class="col-half"><?php dynamic_sidebar('footer-panel-2');?></div>
+    <div class="col-half"><?php dynamic_sidebar('footer-panel-01');?></div>
+    <div class="col-half"><?php dynamic_sidebar('footer-panel-02');?></div>
 </div>
 <?php 
                                                   }

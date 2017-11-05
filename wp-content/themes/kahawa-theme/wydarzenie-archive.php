@@ -8,26 +8,17 @@
  */
 
 get_header();
-
-
-
-if (has_post_thumbnail()) {
-    $image = get_the_post_thumbnail_url();
-} else {
-    $image = get_stylesheet_directory_uri().'/images/hero.jpg';
-}
-
 ?>
 
 
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-        <div class="kahawa-hero" style="background-image: url(<?php echo $image; ?>);">
-            <div class="overlay" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/texture.svg);"></div>
-            <div class="col-full"><h1 class="subpage-title"><?php the_title();?></h1></div>
+        <div class="entry-header">
+            <h1 class="subpage-title"><?php the_title();?></h1>
         </div>
-        <div class="col-full">
+        <div class="entry-content">
+
             <?php
 
             // The Query
@@ -49,7 +40,7 @@ if (has_post_thumbnail()) {
                     }
                 ?>
                 <div class="col-third">
-                    <div class="single-tab">
+                    <div class="wydarzenie-tab">
                         <div><?php echo get_the_post_thumbnail($post->ID, array('650', '650'));?></div>
                         <h2 class="wydarzenie-title"><a href="<?php the_permalink();?>"><?php echo $title; ?></a></h2>
                         <div class="wydarzenie-details">
@@ -82,7 +73,6 @@ if (has_post_thumbnail()) {
             } else {
                 // no posts found
             } ?>
-
         </div>
     </main><!-- #main -->
 </div><!-- #primary -->

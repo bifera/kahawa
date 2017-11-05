@@ -12,3 +12,19 @@
         line-height: 1;
     }
 }
+
+.single-product {
+    .product {
+        .summary {
+            .product_title {
+                font-size: 3rem;
+            }
+            .price {
+                font-size: 1.25rem;
+            }
+        }
+        .variations_form {
+            
+        }
+    }
+}

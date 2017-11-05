@@ -11,11 +11,53 @@
     border: none;
     z-index: 9999;
 }
-.home, .page {
+.site-header {
+    background-color: transparentize(lighten($secondaryColor, 7%), .15);
+}
+
+.admin-bar {
     .site-header {
-        background-color: transparentize($secondaryColor, .4);
+        padding-top: 32px;
     }
 }
+
+.kahawa-hero {
+    width: 100%;
+    height: 250px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    @include largeScreen {
+        height: 380px;
+    }
+    &::after {
+        width: 100%;
+        height: 100%;
+        display: block;
+        content: "";
+        background-color: transparentize($gray, .85);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background-repeat: repeat;
+        opacity: .25;
+    }
+    .subpage-title {
+        position: absolute;
+        bottom: 25px;
+        color: $white;
+        line-height: 1;
+        @include largeScreen {
+            bottom: 60px;
+        }
+    }
+}
+
 
 .kahawa-header-content {
     position: relative;
@@ -59,7 +101,7 @@
             .menu {
                 .current-menu-item {
                     a {
-                        color: $gold;
+                        color: saturate($gold, 15%);
                     }
                 }
             }
@@ -91,7 +133,7 @@
                 text-align: center;
                 .current-menu-item {
                     a {
-                        color: $gold;
+                        color: saturate($gold, 15%);
                     }
                 }
             }
@@ -105,18 +147,17 @@
             font-weight: 700;
             padding: ms(0) ms(1);
             &:hover {
-                color: $gold;
+                color: saturate($gold, 15%);
             }
         }
     }
 }
 
-.kahawa-header-cart {
-    display: none;
-}
 
-
-.post-type-archive-product, .single-product, .woocommerce-cart, .woocommerce-account, .woocommerce-checkout, .tax-product_cat {
+header {
+    .kahawa-header-cart {
+        display: none;
+    }
     @include largeScreen {
         .main-navigation {
             padding-right: 165px;
