@@ -154,4 +154,32 @@ function initMap() {
     });
 }
 
-
+document.addEventListener("DOMContentLoaded", function(){
+    var cartPage = document.querySelector('.woocommerce-cart');
+    if (cartPage) {
+        var barArea = document.getElementById('content').getElementsByClassName('col-full')[0];
+        var barToMove = document.querySelector('#content>.col-full>.woocommerce');
+        if (barToMove) {
+            var barToInsert = barToMove.cloneNode(true);
+            var entryContent = document.getElementById('main').getElementsByClassName('entry-content')[0];
+            var contentFirstChild = entryContent.children[0];
+            entryContent.insertBefore(barToInsert, contentFirstChild);
+            barArea.removeChild(barToMove);
+        }
+    }
+    
+    var eventsPage = document.querySelector('.page-template-wydarzenie-archive');
+    if (eventsPage) {
+        var description = document.querySelectorAll('.wydarzenie-short-description');
+        var height = 0;
+        for (var i = 0; i < description.length; i++) {
+            if (description[i].offsetHeight > height) {
+                height = description[i].offsetHeight;
+            }
+        }
+        var style = 'height: '+height+'px';
+        for (var j = 0; j < description.length; j++) {
+            description[j].setAttribute('style', style);
+        }
+    }
+});
