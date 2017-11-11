@@ -45,20 +45,14 @@ get_header();
                         <h2 class="wydarzenie-title"><a href="<?php the_permalink();?>"><?php echo $title; ?></a></h2>
                         <div class="wydarzenie-details">
                             <?php 
-                    if (get_field('wydarzenie_miejsce', $post->ID)){ ?>
-                            <p>Miejsce wydarzenia: <span class="wydarzenie-accent"><?php echo get_field('wydarzenie_miejsce'); ?></span></p>
-                            <?php } else { ?>
-                            <p>Miejsce wydarzenia: <span>wkrótce</span></p>
-                            <?php }?>
-                            <?php 
                     if (get_field('wydarzenie_data', $post->ID)){ ?>
-                            <p>Data wydarzenia: <span class="wydarzenie-accent"><?php echo get_field('wydarzenie_data');?></span></p>
+                            <p class="wydarzenie-date">Data wydarzenia: <span class="wydarzenie-accent"><?php echo get_field('wydarzenie_data');?></span></p>
                             <?php } else { ?>
                             <p>Data wydarzenia: <span>wkrótce</span></p>
                             <?php } ?>
                             <?php 
                     if (get_field('wydarzenie_opis_short', $post->ID)) { ?>
-                            <p><?php echo get_field('wydarzenie_opis_short', $post->ID); ?></p>
+                            <p class="wydarzenie-short-description"><?php echo get_field('wydarzenie_opis_short', $post->ID); ?></p>
                             <?php } ?>
                             <p class="wydarzenie-link"><a href="<?php the_permalink();?>">Czytaj więcej</a></p>
                         </div>

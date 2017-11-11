@@ -15,6 +15,8 @@ if (get_post_type() == 'product') {
     $shop = get_option('woocommerce_shop_page_id');
     $array =  wp_get_attachment_image_src( get_post_thumbnail_id( $shop ), 'full');
     $heroImage = $array[0];
+} elseif (get_post_type() == 'wydarzenie') {
+    $heroImage = get_the_post_thumbnail_url(61);
 } else {
     if (has_post_thumbnail()) {
         $heroImage = get_the_post_thumbnail_url();
