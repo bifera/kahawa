@@ -15,16 +15,54 @@
 
 .single-product {
     .product {
+        .product_meta {
+            display: none;
+        }
         .summary {
             .product_title {
                 font-size: 3rem;
             }
             .price {
-                font-size: 1.25rem;
+                font-size: 1rem;
+                margin: 1rem 0 1.25rem 0;
             }
         }
         .variations_form {
-            
+            .price {
+                font-size: 1.25rem;
+                color: $darkgray;
+                font-weight: 700;
+            }
+            label {
+                font-size: 1.125rem;
+                font-weight: 300;
+            }
+            .value {
+                select {
+                    width: 175px;
+                }
+            }
+        }
+    }
+}
+
+.woocommerce-tabs {
+    ul.wc-tabs {
+        li {
+            a {
+                font-size: 1.125rem;
+                font-weight: 300;
+            }
+        }
+    }
+}
+
+.related.products {
+    .products {
+        .product {
+            .woocommerce-loop-product__title {
+                font-weight: 700;
+            }
         }
     }
 }

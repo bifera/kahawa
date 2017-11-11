@@ -16,6 +16,7 @@
         padding: ms(0) 0;
         font-size: ms(1);
         text-align: center;
+        margin: 0;
         &::after {
             display: block;
             content: "";
@@ -26,6 +27,16 @@
         }
     }
     .wydarzenie-details {
+        margin-bottom: ms(1);
+        border-bottom: 1px solid $gray;
+        .wydarzenie-date {
+            font-size: 1.125rem;
+            font-weight: 300;
+            margin-bottom: ms(0);
+        }
+        .wydarzenie-short-description {
+            color: $gray;
+        }
         p {
             font-size: .875rem;
             color: $darkgray;
@@ -49,5 +60,29 @@
                 margin-left: 5px;
             }
         }
+    }
+}
+
+.single-wydarzenie {
+    .entry-details {
+        margin-bottom: ms(2);
+    }
+    .wydarzenie-date {
+        font-family: $headerFont;
+        font-weight: 700;
+        font-size: 1.75rem;
+        margin-top: ms(1);
+        margin-bottom: ms(2);
+    }
+    .wydarzenie-short-description {
+        font-size: 1.25rem;
+        font-weight: 300;
+    }
+    .entry-footer {
+        margin-top: ms(2);
+        margin-bottom: ms(2);
+    }
+    .back-link {
+        font-weight: 700;
     }
 }

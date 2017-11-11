@@ -99,6 +99,9 @@
             padding: 0 0 0 230px;
             margin: 0;
             .menu {
+                .menu-item {
+                    line-height: 1;
+                }
                 .current-menu-item {
                     a {
                         color: saturate($gold, 15%);
@@ -173,21 +176,20 @@ header {
                 bottom: 0;
                 margin: 0;
                 .kahawa-cart-link {
-                    position: relative;
+                    a {
+                        position: relative;
+                    }
                     span {
-                        position: absolute;
-                        top: 15px;
-                        right: 1px;
-                        width: 20px;
-                        height: 20px;
-                        background-color: transparentize($darkgray, .25);
-                        color: $gold;
-                        border-radius: 50%;
                         font-size: .875rem;
-                        line-height: 1;
-                        font-weight: 700;
-                        padding-left: 6px;
-                        padding-top: 3px;
+                        line-height: 16px;
+                        &::before {
+                            display: inline;
+                            content: "(";
+                        }
+                        &::after {
+                            display: inline;
+                            content: ")";
+                        }
                     }
                 }
                 > li {
@@ -195,6 +197,7 @@ header {
                     list-style-type: none;
                     a {
                         padding: ms(1) ms(0);
+                        line-height: 1;
                         display: block;
                         &:hover {
                             color: $gold;

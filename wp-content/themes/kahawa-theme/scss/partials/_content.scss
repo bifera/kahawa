@@ -1,4 +1,4 @@
-/**** styles for page content ****/
+/**** styles for general page content ****/
 
 .page-template-template-subpage, .page-template-template-main {
     .content-area {
@@ -86,18 +86,16 @@ body:not(.home) {
                 color: $white;
             }
             +.entry-content {
-                padding-top: 60px;
+                padding-top: 80px;
             }
         }
-
     }
     .widget-area {
-        padding-top: 60px;
+        padding-top: 80px;
     }
 }
-
 .post-type-archive-product, .single-product {
     .site-main, .widget-area {
-        padding-top: 60px;
+        padding-top: 80px;
     }
 }

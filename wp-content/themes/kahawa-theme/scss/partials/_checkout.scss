@@ -1,0 +1,84 @@
+/* styles for checkout pages */
+
+.checkout {
+    .woocommerce-billing-fields, .woocommerce-additional-fields {
+        label {
+            font-weight: 600;
+            color: $wc-gray;
+        }
+        input {
+            background-color: $wc-lightgray;
+        }
+        .required {
+            text-decoration: none;
+        }
+    }
+    #order_review_heading {
+        @include largeScreen{
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+    }
+    #order_review {
+        .shop_table {
+            margin-bottom: ms(2);
+            th.product-name, td.product-name {
+                width: 175px;
+            }
+            td.product-name {
+                color: $darkgray;
+            }
+            .variation {
+                dt {
+                    color: $wc-gray;
+                }
+                dd {
+                    font-style: italic;
+                }
+            }
+            tfoot {
+                &::before {
+                    display: block;
+                    width: 100%;
+                    content: "";
+                    height: ms(2);
+                }
+            }
+            .woocommerce-Price-amount {
+                color: $darkgray;
+            }
+        }
+    }
+}
+
+.woocommerce-order-received {
+    ul.woocommerce-order-overview.order_details {
+        &::before {
+            display: none;
+        }
+        li {
+            font-size: 1rem;
+            color: $wc-gray;
+            text-transform: none;
+            font-weight: 700;
+            position: relative;
+            strong {
+                font-size: 1.125rem;
+                font-weight: 700;
+                color: $darkgray;
+            }
+        }
+    }
+    .woocommerce-table--order-details {
+        .woocommerce-Price-amount {
+            color: $darkgray;
+            font-weight: 700;
+        }
+        tfoot {
+            td {
+                color: $darkgray;
+            }
+        }
+    }
+
+}

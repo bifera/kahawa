@@ -6,6 +6,7 @@
 
 html, body {
     font-family: $mainFont;
+    color: $fontColor;
 }
 
 @for $i from 1 through 6 {
@@ -95,6 +96,16 @@ textarea {
     width: 100%;
     @include largeScreen {
         width: 33.3333%;
+        float: left;
+    }
+}
+
+.col-three-quart {
+    @extend %container-padding;
+    @extend %box-sizing;
+    width: 100%;
+    @include largeScreen {
+        width: 66.6666%;
         float: left;
     }
 }
