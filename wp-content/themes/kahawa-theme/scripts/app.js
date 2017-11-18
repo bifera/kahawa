@@ -170,8 +170,9 @@ document.addEventListener("DOMContentLoaded", function(){
     
     var eventsPage = document.querySelector('.page-template-wydarzenie-archive');
     if (eventsPage) {
-        var description = document.querySelectorAll('.wydarzenie-short-description');
+        var description = document.querySelectorAll('.wydarzenie-details');
         var height = 0;
+        console.log(description);
         for (var i = 0; i < description.length; i++) {
             if (description[i].offsetHeight > height) {
                 height = description[i].offsetHeight;

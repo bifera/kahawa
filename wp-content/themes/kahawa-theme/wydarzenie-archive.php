@@ -41,21 +41,23 @@ get_header();
                 ?>
                 <div class="col-third">
                     <div class="wydarzenie-tab">
+                       <a href="<?php the_permalink(); ?>">
                         <div><?php echo get_the_post_thumbnail($post->ID, array('650', '650'));?></div>
-                        <h2 class="wydarzenie-title"><a href="<?php the_permalink();?>"><?php echo $title; ?></a></h2>
+                        <h2 class="wydarzenie-title"><?php echo $title; ?></h2>
                         <div class="wydarzenie-details">
                             <?php 
                     if (get_field('wydarzenie_data', $post->ID)){ ?>
-                            <p class="wydarzenie-date">Data wydarzenia: <span class="wydarzenie-accent"><?php echo get_field('wydarzenie_data');?></span></p>
+                            <p class="wydarzenie-date">Data: <span class="wydarzenie-accent"><?php echo get_field('wydarzenie_data');?></span></p>
                             <?php } else { ?>
-                            <p>Data wydarzenia: <span>wkrótce</span></p>
+                            <p>Data: <span>wkrótce</span></p>
                             <?php } ?>
                             <?php 
                     if (get_field('wydarzenie_opis_short', $post->ID)) { ?>
                             <p class="wydarzenie-short-description"><?php echo get_field('wydarzenie_opis_short', $post->ID); ?></p>
                             <?php } ?>
-                            <p class="wydarzenie-link"><a href="<?php the_permalink();?>">Czytaj więcej</a></p>
+                            <p class="wydarzenie-link">Czytaj więcej</p>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <?php

@@ -42,19 +42,7 @@ textarea {
 }
 
 .button, button, button.menu-toggle, button.alt, .button.alt, .button, input[type="submit"].button {
-    font-weight: 700;
-    line-height: 1;
-    padding: ms(0) ms(2);
-    border-radius: 5px;
-    border: 2px solid $darkgray;
-    background-color: transparent;
-    color: $darkgray;
-    &:hover {
-        background-color: transparent;
-        border-color: $gold;
-        color: $gold;
-    }
-    &-open {
+    &.button-open {
         background-color: transparentize($altColor, .55);
         border: 2px solid $white;
         color: $white;
@@ -64,6 +52,22 @@ textarea {
             border-color: $secondaryColor;
         }
     }
+    @extend %button;
+    &:hover {
+        background-color: transparent;
+        border-color: $gold;
+        color: $gold;
+    }
+}
+
+%button {
+    font-weight: 700;
+    line-height: 1;
+    padding: ms(0) ms(2);
+    border-radius: 5px;
+    border: 2px solid $darkgray;
+    background-color: transparent;
+    color: $darkgray;
 }
 
 .kahawa-row {

@@ -1,0 +1,35 @@
+.wpcf7 {
+    form {
+        @include largeScreen {
+            width: 600px;
+            margin: 40px auto;
+            padding: 40px 20px;
+            border: 1px solid transparentize($secondaryColor, .6);
+            border-radius: 5px;
+            label {
+                display: block;
+                text-align: left;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+        }
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            @include largeScreen {
+                max-width: 450px;
+                display: block;
+                margin: 10px auto;
+            }
+        }
+        input[type="submit"] {
+            display: block;
+            margin: auto;
+            @extend %button;
+            &:hover {
+                background-color: transparent;
+                border-color: $gold;
+                color: $gold;
+            }
+        }
+    }
+}

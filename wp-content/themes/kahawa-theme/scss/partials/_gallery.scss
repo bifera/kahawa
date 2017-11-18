@@ -1,0 +1,21 @@
+.gallery {
+    margin-top: 40px;
+    &.gallery-columns-3 {
+        .gallery-item {
+            width: 100%;
+            margin-bottom: 40px;
+            @include largeScreen {
+                width: 33.3%;
+            }    
+        }
+    }
+}
+
+.fancybox-container {
+    .fancybox-arrow {
+        top: 85%;
+        @include largeScreen {
+            top: 50%;
+        }
+    }
+}

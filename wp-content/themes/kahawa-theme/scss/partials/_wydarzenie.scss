@@ -17,6 +17,7 @@
         font-size: ms(1);
         text-align: center;
         margin: 0;
+        color: $gold;
         &::after {
             display: block;
             content: "";
@@ -39,7 +40,6 @@
         }
         p {
             font-size: .875rem;
-            color: $darkgray;
         }
     }
     .wydarzenie-accent {
@@ -47,18 +47,17 @@
     }
     .wydarzenie-link {
         text-align: right;
-        a {
-            font-weight: 700;
-            &::after {
-                display: inline-block;
-                content: "";
-                width: 5px;
-                height: 5px;
-                border-top: 1px solid $gold;
-                border-right: 1px solid $gold;
-                transform: rotate(45deg);
-                margin-left: 5px;
-            }
+        font-weight: 700;
+        color: $gold;
+        &::after {
+            display: inline-block;
+            content: "";
+            width: 5px;
+            height: 5px;
+            border-top: 1px solid $gold;
+            border-right: 1px solid $gold;
+            transform: rotate(45deg);
+            margin-left: 5px;
         }
     }
 }
@@ -71,12 +70,16 @@
         font-family: $headerFont;
         font-weight: 700;
         font-size: 1.75rem;
-        margin-top: ms(1);
+        margin-top: 0;
         margin-bottom: ms(2);
     }
     .wydarzenie-short-description {
         font-size: 1.25rem;
         font-weight: 300;
+        margin-bottom: 40px;
+    }
+    .wydarzenie-full-description {
+        margin-bottom: 20px;
     }
     .entry-footer {
         margin-top: ms(2);

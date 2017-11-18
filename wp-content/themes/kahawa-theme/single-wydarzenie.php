@@ -30,9 +30,9 @@ get_header(); ?>
                 <div class="entry-date col-three-quart">
                     <?php 
                     if (get_field('wydarzenie_data')){ ?>
-                    <div class="wydarzenie-date">Data wydarzenia: <span><?php echo get_field('wydarzenie_data');?></span></div>
+                    <div class="wydarzenie-date">Data: <span><?php echo get_field('wydarzenie_data');?></span></div>
                     <?php } else { ?>
-                    <div>Data wydarzenia: <span>wkrótce</span></div>
+                    <div>Data: <span>wkrótce</span></div>
                     <?php } ?>
 
                     <?php
@@ -41,9 +41,9 @@ get_header(); ?>
                            <?php the_field('wydarzenie_opis_short'); ?>
                        </div>
                     <?php } ?>
+                    <div class="wydarzenie-full-description"><?php the_content(); ?></div>
                 </div>
-            </div>
-            <?php the_content(); ?>
+            </div>   
         </div>
         <div class="entry-footer">
             <a class="back-link" href="<?php echo get_page_link(61); ?>">&lt; &lt; Powrót do Wydarzeń</a>
