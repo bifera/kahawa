@@ -21,3 +21,5 @@ info.txt
 storefront
 
 plugins
+
+/wp-content/*backups
