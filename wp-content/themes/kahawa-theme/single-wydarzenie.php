@@ -20,7 +20,7 @@ get_header(); ?>
 
         ?>
         <div class="entry-header">
-            <h1 class="page-title"><?php echo $title; ?></h1>
+            <h1 class="subpage-title"><?php echo $title; ?></h1>
         </div>
         <div class="entry-content">
             <div class="entry-details kahawa-row">

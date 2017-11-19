@@ -169,7 +169,8 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
     var eventsPage = document.querySelector('.page-template-wydarzenie-archive');
-    if (eventsPage) {
+    var mainPage = document.querySelector('.page-template-template-main');
+    if (eventsPage || mainPage) {
         var description = document.querySelectorAll('.wydarzenie-details');
         var height = 0;
         console.log(description);

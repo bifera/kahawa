@@ -14,6 +14,7 @@
     .kahawa-hero {
         width: 100%;
         height: 100vh;
+        min-height: 600px;
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
@@ -23,7 +24,7 @@
             height: 100%;
             display: block;
             content: "";
-            background-color: transparentize($gray, .85);
+            background-color: transparentize($darkgray, .55);
             position: absolute;
             top: 0;
             left: 0;
@@ -59,6 +60,10 @@
     .site-title, .site-subtitle {
         color: $white;
         line-height: 1;
+        text-align: center;
+        img {
+            margin: 0 auto;
+        }
     }
     .kahawa-title {
         margin-bottom: 20px;
@@ -81,21 +86,50 @@ body:not(.home) {
         position: relative;
         .woocommerce-products-header, .entry-header {
             position: absolute;
-            top: -100px;
+            top: -110px;
             .page-title, .subpage-title, .entry-title {
                 color: $white;
             }
             +.entry-content {
-                padding-top: 80px;
+                padding-top: 40px;
+                @include largeScreen {
+                    padding-top: 80px;
+                }
             }
         }
     }
     .widget-area {
-        padding-top: 80px;
+        padding-top: 40px;
+        @include largeScreen {
+            padding-top: 80px;
+        }
     }
 }
 .post-type-archive-product, .single-product {
     .site-main, .widget-area {
-        padding-top: 80px;
+        padding-top: 40px;
+        @include largeScreen {
+            padding-top: 80px;
+        } 
+    }
+}
+
+.subpage-title, .entry-title, .page-title {
+    font-size: 2.75rem;
+    @include largeScreen {
+        font-size: 4.5rem;
+    }
+}
+
+.title-as-link {
+    color: $darkgray;
+    &:hover {
+        color: $gold;
+    }
+    a {
+        color: $darkgray;
+        &:hover {
+            color: $gold;
+        }
     }
 }

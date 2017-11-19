@@ -5,10 +5,9 @@ include('custom-posts/custom-posts.php');
 /* add custom theme fonts */
 wp_enqueue_style( 'kahawa-custom-fonts', 'https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Open+Sans+Condensed:300,300i,700&amp;subset=latin-ext');
 
+
+/* add custom scripts */
 wp_enqueue_script( "kahawa-scripts", get_stylesheet_directory_uri().'/scripts/app.js' );
-
-
-
 
 function kahawa_custom_image_sizes(){
     add_theme_support( 'post-thumbnails' );
@@ -55,7 +54,7 @@ if ( ! function_exists( 'kahawa_display_custom_header_cart' ) ) {
 if ( ! function_exists( 'kahawa_site_branding' ) ) {
     function kahawa_site_branding(){ ?>
 <div class="site-branding">
-    <a href="<?php echo site_url(); ?>" title="Kahawa Kawa i Książka"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-black.png" alt="Kahawa Kawa i Książka"></a>
+    <a href="<?php echo site_url(); ?>" title="Kahawa Kawa i Książka"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="Kahawa Kawa i Książka"></a>
 </div> <?php
                                    }
 }

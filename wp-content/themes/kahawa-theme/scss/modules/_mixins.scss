@@ -12,6 +12,12 @@
     }
 }
 
+@mixin onlyDesktop {
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
 /**** extend silent classes ****/
 
 %cf {

@@ -17,7 +17,6 @@
         font-size: ms(1);
         text-align: center;
         margin: 0;
-        color: $gold;
         &::after {
             display: block;
             content: "";
@@ -70,13 +69,16 @@
         font-family: $headerFont;
         font-weight: 700;
         font-size: 1.75rem;
-        margin-top: 0;
+        margin-top: ms(1);
         margin-bottom: ms(2);
+        @include largeScreen {
+            margin-top: 0;
+        }
     }
     .wydarzenie-short-description {
         font-size: 1.25rem;
         font-weight: 300;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
     .wydarzenie-full-description {
         margin-bottom: 20px;

@@ -17,6 +17,8 @@ if (get_post_type() == 'product') {
     $heroImage = $array[0];
 } elseif (get_post_type() == 'wydarzenie') {
     $heroImage = get_the_post_thumbnail_url(61);
+} elseif (get_field('hero_image')) {
+    $heroImage = get_field('hero_image');
 } else {
     if (has_post_thumbnail()) {
         $heroImage = get_the_post_thumbnail_url();

@@ -36,7 +36,7 @@
         height: 100%;
         display: block;
         content: "";
-        background-color: transparentize($gray, .85);
+        background-color: transparentize($darkgray, .55);
         position: absolute;
         top: 0;
         left: 0;
@@ -63,7 +63,7 @@
     position: relative;
     min-height: 70px;
     @include largeScreen {
-        min-height: 130px;
+        min-height: 110px;
     }
     .site-branding {
         float: left;
@@ -74,15 +74,18 @@
             float: none;
             position: absolute;
             left: 0;
-            bottom: 25px;
+            bottom: 20px;
             margin: 0;
+        }
+        @include onlyDesktop {
+            bottom: 15px;
         }
         img {
             max-width: 130px;
             height: auto;
             margin: 0 auto;
-            @include largeScreen {
-                max-width: 180px;
+            @include onlyDesktop {
+                max-width: 170px;
                 margin: 0;
             }
         }
@@ -93,7 +96,7 @@
         @include largeScreen {
             text-align: left;
             position: absolute;
-            bottom: 25px;
+            bottom: 20px;
             right: 0;
             width: 100%;
             padding: 0 0 0 230px;
@@ -118,8 +121,7 @@
         }
     }
 }
-
-.main-navigation {
+#site-navigation {
     .menu-toggle {
         float: right;
         background-color: $secondaryColor;
@@ -148,7 +150,12 @@
             color: $fontColor;
             font-size: ms(0);
             font-weight: 700;
-            padding: ms(0) ms(1);
+            @include largeScreen {
+                padding: ms(1) .5rem;
+            }
+            @include onlyDesktop {
+                padding: ms(1) ms(1);
+            }
             &:hover {
                 color: saturate($gold, 15%);
             }
@@ -156,14 +163,13 @@
     }
 }
 
-
 header {
     .kahawa-header-cart {
         display: none;
     }
     @include largeScreen {
         .main-navigation {
-            padding-right: 165px;
+            padding-right: 120px;
             position: absolute;
             left: 0;
             bottom: 0;
@@ -196,7 +202,12 @@ header {
                     display: inline-block;
                     list-style-type: none;
                     a {
-                        padding: ms(1) ms(0);
+                        @include largeScreen {
+                            padding: ms(1) .5rem;
+                        }
+                        @include onlyDesktop {
+                            padding: ms(1) ms(0);
+                        }
                         line-height: 1;
                         display: block;
                         &:hover {
@@ -205,6 +216,11 @@ header {
                     }
                 }
             }
+        }
+    }
+    @include onlyDesktop {
+        .main-navigation {
+            padding-right: 165px;
         }
     }
 }

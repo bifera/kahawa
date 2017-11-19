@@ -1,0 +1,64 @@
+/* styles for homepage content */
+
+.kahawa-menu {
+    @include largeScreen {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 40px 60px;
+        border: 1px solid transparentize($secondaryColor, .6);
+        border-radius: 5px;
+    }
+    tbody {
+        tr {
+            th {
+                font-family: $headerFont;
+                font-weight: 700;
+                background-color: transparentize($secondaryColor, .75);
+                border-top: 1px solid $darkgray;
+                font-size: .8125rem;
+                padding: 10px;
+                @include largeScreen {
+                    font-size: 1rem;
+                    padding: 1rem 1.5rem;
+                }
+            }
+            td {
+                background-color: transparent;
+                font-size: .8125rem;
+                padding: 10px 0;
+                &:nth-child(2n+1) {
+                    padding-left: 10px;
+                    padding-right: 5px;
+                }
+                &:nth-child(2n) {
+                    min-width: 40px;
+                }
+                @include largeScreen {
+                    font-size: 1rem;
+                    padding: 1rem 1.5rem;
+                    &:nth-child(2n+1) {
+                        padding: 1rem 1.5rem;
+                    }
+                    &:nth-child(2n) {
+                        min-width: inherit;
+                    }
+                }
+
+                &.details {
+                    background-color: transparent;
+                    font-size: .75rem;
+                    padding-left: 1.5rem;
+                    @include largeScreen {
+                        font-size: .875rem;
+                        padding-left: 2rem;
+                    }  
+                }
+            }
+            &:nth-child(2n){
+                td {
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}

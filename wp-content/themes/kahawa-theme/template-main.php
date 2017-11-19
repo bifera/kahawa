@@ -29,21 +29,20 @@ if (has_post_thumbnail()) {
         <div class="kahawa-hero" style="background-image: url(<?php echo $image;?>);">
             <div class="overlay" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/texture.svg);"></div>
             <?php 
-            if (get_field('czy_wlasny_naglowek') == 1) {
-                $naglowek = get_field('naglowek_naglowek');
-                $podtytul = get_field('naglowek_podtytul');
-                $button = get_field('naglowek_button_tresc');
-                $button_link = get_field('naglowek_button_odnosnik');
+            if (get_field('naglowek_rodzaj') == 'tekst') {
+                $content = get_field('naglowek_naglowek');
+                $header = '<h1 class="site-title">'.$content.'</h1>';
+
             } else {
-                $naglowek = "Kahawa";
-                $podtytul = "Kawa i książka";
-                $button = "Dowiedz się więcej";
-                $button_link = "#pierwsza";
+                $logo = get_field('naglowek_logo');
+                $header = '<h1 class="site-title"><img src="'.$logo["url"].'" width="'.$logo["width"].'" height="'.$logo["height"].'" alt="'.$logo["alt"].'" /></h1>';
             }
+            $podtytul = get_field('naglowek_podtytul');
+            $button = get_field('naglowek_button_tresc');
+            $button_link = get_field('naglowek_button_odnosnik');
             ?>
             <div class="kahawa-intro col-full">
-                <h1 class="site-title">KAHAWA</h1>
-                <h2 class="site-subtitle">Kawa i Książka</h2>
+                <?php echo $header; ?>
                 <p class="kahawa-subtitle"><?php echo $podtytul;?></p>
                 <p><a href="<?php echo $button_link;?>" class="button button-open"><?php echo $button;?></a></p>
             </div>
@@ -68,11 +67,58 @@ if (has_post_thumbnail()) {
                 while (have_posts()){
                     the_post();
                     the_content();
+
                 }
             }
             ?>
         </div>
+        <?php if (get_field('wydarzenia_wyswietlic')) {?>
+        <div class="kahawa-content col-full">
+            <h2 class="title-as-link"><a href="<?php echo get_page_link(61);?>"><?php echo get_field('wydarzenia_naglowek');?></a></h2>
+            <?php 
+                                                       $args = array('post_type'=> 'wydarzenie', 'post_status' =>'publish','posts_per_page' => 3, 'orderby' => 'date');
+                                                       $eventsQuery = new WP_Query( $args );
 
+                                                       // The Loop
+                                                       if ( $eventsQuery->have_posts() ) { ?>
+            <div class="kahawa-row">
+                <?php
+                                                           while ( $eventsQuery->have_posts() ) {
+                                                               $eventsQuery->the_post(); ?>
+                <?php 
+                                                               if (get_field('wydarzenie_nazwa', $post->ID)) {
+                                                                   $title = get_field('wydarzenie_nazwa', $post->ID);
+                                                               } else {
+                                                                   $title = get_the_title();
+                                                               }
+                ?>
+                <div class="col-third">
+                    <div class="wydarzenie-tab">
+                        <a href="<?php the_permalink(); ?>">
+                            <div><?php echo get_the_post_thumbnail($post->ID, array('650', '650'));?></div>
+                            <h2 class="wydarzenie-title title-as-link"><?php echo $title; ?></h2>
+                            <div class="wydarzenie-details">
+                                <?php 
+                                                               if (get_field('wydarzenie_data', $post->ID)){ ?>
+                                <p class="wydarzenie-date">Data: <span class="wydarzenie-accent"><?php echo get_field('wydarzenie_data');?></span></p>
+                                <?php } else { ?>
+                                <p>Data: <span>wkrótce</span></p>
+                                <?php } ?>
+                                <?php 
+                                                               if (get_field('wydarzenie_opis_short', $post->ID)) { ?>
+                                <p class="wydarzenie-short-description"><?php echo get_field('wydarzenie_opis_short', $post->ID); ?></p>
+                                <?php } ?>
+                                <p class="wydarzenie-link">Czytaj więcej</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <?php } ?>
+            </div><?php wp_reset_postdata();
+                                                       } else {
+                                                           // no posts found
+                                                       } ?>
+        </div><?php } ?>
     </main><!-- #main -->
 </div><!-- #primary -->
 <?php

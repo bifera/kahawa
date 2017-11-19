@@ -10,12 +10,6 @@
 get_header(); ?>
 
 <?php while ( have_posts() ) : the_post();
-
-if (has_post_thumbnail()) {
-    $image = get_the_post_thumbnail_url();
-} else {
-    $image = get_stylesheet_directory_uri().'/images/hero.jpg';
-}
 ?>
 
 <div id="primary" class="content-area">
