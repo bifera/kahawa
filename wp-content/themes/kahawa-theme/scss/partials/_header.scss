@@ -2,7 +2,7 @@
 
 .site-header {
     width: 100%;
-    background-color: $secondaryColor;
+    background-color: $headerFooterColor;
     padding: 0;
     position: fixed;
     top: 0;
@@ -10,9 +10,7 @@
     margin-bottom: 0!important;
     border: none;
     z-index: 9999;
-}
-.site-header {
-    background-color: transparentize(lighten($secondaryColor, 7%), .15);
+    box-shadow: 0 0 5px 1px transparentize($gray, .5);
 }
 
 .admin-bar {
@@ -61,29 +59,54 @@
 
 .kahawa-header-content {
     position: relative;
-    min-height: 70px;
+    min-height: 55px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     @include largeScreen {
+        min-height: 90px;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    @include onlyDesktop {
         min-height: 110px;
     }
     .site-branding {
         float: left;
-        margin: 0;
+        margin: 5px 0 0;
         padding: 0;
         z-index: 999;
         @include largeScreen {
             float: none;
             position: absolute;
-            left: 0;
-            bottom: 20px;
+            left: ms(0);
+            bottom: 15px;
             margin: 0;
+            &::after {
+                position: absolute;
+                bottom: -15px;
+                left: 80px;
+                width: 60px;
+                height: 110px;
+                background-color: $lightAccentColor;
+                display: block;
+                content: "";
+                z-index: -1;
+            }
         }
         @include onlyDesktop {
             bottom: 15px;
+            &::after {
+                bottom: -15px;
+                width: 80px;
+            }
         }
         img {
-            max-width: 130px;
+            max-width: 100px;
             height: auto;
             margin: 0 auto;
+            @include largeScreen {
+                max-width: 130px;
+            }
             @include onlyDesktop {
                 max-width: 170px;
                 margin: 0;
@@ -92,11 +115,11 @@
     }
     .storefront-primary-navigation {
         text-align: center;
-        margin-top: 20px;
+        margin: 0;
         @include largeScreen {
             text-align: left;
             position: absolute;
-            bottom: 20px;
+            bottom: 12px;
             right: 0;
             width: 100%;
             padding: 0 0 0 230px;
@@ -107,10 +130,13 @@
                 }
                 .current-menu-item {
                     a {
-                        color: saturate($gold, 15%);
+                        color: saturate($linkColor, 15%);
                     }
                 }
             }
+        }
+        @include onlyDesktop {
+            bottom: 20px;
         }
         .main-navigation {
             float: none;
@@ -127,18 +153,28 @@
         background-color: $secondaryColor;
         &:hover, &:active {
             background-color: $secondaryColor;
+
         }
     }
     &.toggled {
+        .menu-toggle {
+            margin-bottom: 20px;
+            &::before, &::after {
+                background-color: $linkColor;
+            }
+        }
         .handheld-navigation {
             max-height: inherit;
             background-color: transparentize($secondaryColor, .2);
+            margin-bottom: 10px;
+            margin-left: -1*ms(0);
+            margin-right: -1*ms(0);
             > ul {
                 float: none;
                 text-align: center;
                 .current-menu-item {
                     a {
-                        color: saturate($gold, 15%);
+                        color: saturate($linkColor, 15%);
                     }
                 }
             }
@@ -157,7 +193,7 @@
                 padding: ms(1) ms(1);
             }
             &:hover {
-                color: saturate($gold, 15%);
+                color: saturate($linkColor, 15%);
             }
         }
     }
@@ -211,7 +247,7 @@ header {
                         line-height: 1;
                         display: block;
                         &:hover {
-                            color: $gold;
+                            color: $linkColor;
                         }
                     }
                 }

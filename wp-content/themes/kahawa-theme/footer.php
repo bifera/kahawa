@@ -15,7 +15,13 @@
 	<?php do_action( 'storefront_before_footer' ); ?>
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="col-full">
+	<div class="kahawa-accent-block">
+	    <div class="col-full">
+	        <div class="kahawa-color-bar"></div>
+	    </div>
+	</div>
+		<div class="col-full kahawa-footer-content">
+            
 
 			<?php
 			/**
@@ -27,6 +33,7 @@
 			do_action( 'storefront_footer' ); ?>
 
 		</div><!-- .col-full -->
+		
 	</footer><!-- #colophon -->
 
 	<?php do_action( 'storefront_after_footer' ); ?>

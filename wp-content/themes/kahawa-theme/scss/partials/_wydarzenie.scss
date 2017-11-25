@@ -47,14 +47,14 @@
     .wydarzenie-link {
         text-align: right;
         font-weight: 700;
-        color: $gold;
+        color: $linkColor;
         &::after {
             display: inline-block;
             content: "";
             width: 5px;
             height: 5px;
-            border-top: 1px solid $gold;
-            border-right: 1px solid $gold;
+            border-top: 1px solid $linkColor;
+            border-right: 1px solid $linkColor;
             transform: rotate(45deg);
             margin-left: 5px;
         }

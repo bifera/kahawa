@@ -13,7 +13,7 @@
             th {
                 font-family: $headerFont;
                 font-weight: 700;
-                background-color: transparentize($secondaryColor, .75);
+                background-color: transparentize($accentColor, .75);
                 border-top: 1px solid $darkgray;
                 font-size: .8125rem;
                 padding: 10px;

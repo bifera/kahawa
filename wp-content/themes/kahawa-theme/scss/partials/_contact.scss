@@ -29,8 +29,8 @@
             @extend %button;
             &:hover {
                 background-color: transparent;
-                border-color: $gold;
-                color: $gold;
+                border-color: $linkColor;
+                color: $linkColor;
             }
         }
     }

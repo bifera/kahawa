@@ -20,17 +20,29 @@ $headerFont: 'Open Sans Condensed', sans-serif;
 
 
 /*** colors ***/
+
+$colorOne: #7D9F99;
+$colorTwo: #EDBCEF;
+$colorThree: #D1ECE7;
+$colorFour: #B9B091;
+$colorFive: #9F9A85;
+
+
 $primaryColor: #fff;
-$secondaryColor: #dfd3ad;
+$secondaryColor: #d1ece7;
+$accentColor: #F9C4CE;
+$lightAccentColor: lighten($accentColor, 7%);
+$headerFooterColor: transparentize(lighten($secondaryColor, 7%), .15);
+$linkColor: #993D4F;
+//$secondaryColor: #dfd3ad;
 $altColor: #35271a;
-$accentColor: darken($secondaryColor, 60%);
 
 $fontColor: #232323;
 
 $black: #000;
 $darkgray: #232323;
 $white: #fff;
-$gray: #838383;
+$gray: #9F9A85;
 $wc-lightgray: #f8f8f8;
 $wc-gray: #6d6d6d;
 $brown: #35271a;

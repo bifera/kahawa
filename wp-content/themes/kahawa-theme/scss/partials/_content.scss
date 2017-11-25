@@ -62,7 +62,11 @@
         line-height: 1;
         text-align: center;
         img {
+            width: 60vw;
             margin: 0 auto;
+            @include largeScreen {
+                width: 30vw;
+            }
         }
     }
     .kahawa-title {
@@ -124,12 +128,12 @@ body:not(.home) {
 .title-as-link {
     color: $darkgray;
     &:hover {
-        color: $gold;
+        color: $linkColor;
     }
     a {
         color: $darkgray;
         &:hover {
-            color: $gold;
+            color: $linkColor;
         }
     }
 }
