@@ -55,4 +55,40 @@ function custom_post_type() {
 	register_post_type( 'wydarzenie', $args );
 
 }
+
+function custom_taxonomy(){
+	$labels = array(
+		'name'                       => _x( 'Rodzaje', 'taxonomy general name', 'textdomain' ),
+		'singular_name'              => _x( 'Rodzaj', 'taxonomy singular name', 'textdomain' ),
+		'search_items'               => __( 'Znajdź Rodzaje', 'textdomain' ),
+		'popular_items'              => __( 'Popularne Rodzaje', 'textdomain' ),
+		'all_items'                  => __( 'Wszystkie Rodzaje', 'textdomain' ),
+		'parent_item'                => null,
+		'parent_item_colon'          => null,
+		'edit_item'                  => __( 'Edytuj Rodzaj', 'textdomain' ),
+		'update_item'                => __( 'Zaktualizuj Rodzaj', 'textdomain' ),
+		'add_new_item'               => __( 'Dodaj nowy Rodzaj', 'textdomain' ),
+		'new_item_name'              => __( 'Nazwa nowego Rodzaju', 'textdomain' ),
+		'separate_items_with_commas' => __( 'Oddzielone przecinkami', 'textdomain' ),
+		'add_or_remove_items'        => __( 'Dodaj lub usuń Rodzaje', 'textdomain' ),
+		'choose_from_most_used'      => __( 'Wybierz z najczęściej używanych Rodzajów', 'textdomain' ),
+		'not_found'                  => __( 'Nie znaleziono Rodzajów.', 'textdomain' ),
+		'menu_name'                  => __( 'Rodzaje', 'textdomain' ),
+	);
+
+	$args = array(
+		'hierarchical'          => true,
+		'labels'                => $labels,
+		'show_ui'               => true,
+		'show_admin_column'     => true,
+		'update_count_callback' => '_update_post_term_count',
+		'query_var'             => true,
+		'rewrite'               => array( 'slug' => 'rodzaj' ),
+	);
+
+	register_taxonomy( 'rodzaj', 'wydarzenie', $args );
+}
+
+
 add_action( 'init', 'custom_post_type', 0 );
+add_action( 'init', 'custom_taxonomy', 0);
