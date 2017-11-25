@@ -170,18 +170,24 @@ document.addEventListener("DOMContentLoaded", function(){
     
     var eventsPage = document.querySelector('.page-template-wydarzenie-archive');
     var mainPage = document.querySelector('.page-template-template-main');
-    if (eventsPage || mainPage) {
-        var description = document.querySelectorAll('.wydarzenie-details');
+    var eventsTaxPage = document.querySelector('.tax-rodzaj');
+    
+    function setHeights(selector){
+        var elements = document.querySelectorAll(selector);
         var height = 0;
-        console.log(description);
-        for (var i = 0; i < description.length; i++) {
-            if (description[i].offsetHeight > height) {
-                height = description[i].offsetHeight;
+        for (var i = 0; i < elements.length; i++){
+            if (elements[i].offsetHeight > height) {
+                height = elements[i].offsetHeight;
             }
         }
-        var style = 'height: '+height+'px';
-        for (var j = 0; j < description.length; j++) {
-            description[j].setAttribute('style', style);
+        var style = 'height: '+height+'px;';
+        for (var j = 0; j < elements.length; j++){
+            elements[j].setAttribute('style', style);
         }
+    }
+    
+    if (eventsPage || mainPage || eventsTaxPage) {
+        setHeights('.wydarzenie-short-description');
+        setHeights('.wydarzenie-title.title-as-link');
     }
 });

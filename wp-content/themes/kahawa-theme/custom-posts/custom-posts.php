@@ -50,7 +50,7 @@ function custom_post_type() {
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
-        'rewrite'               => array('slug'=>'wydarzenia'),
+        'rewrite'               => array('slug'=>'wydarzenie'),
 	);
 	register_post_type( 'wydarzenie', $args );
 
@@ -83,7 +83,7 @@ function custom_taxonomy(){
 		'show_admin_column'     => true,
 		'update_count_callback' => '_update_post_term_count',
 		'query_var'             => true,
-		'rewrite'               => array( 'slug' => 'rodzaj' ),
+		'rewrite'               => array( 'slug' => 'wydarzenia')
 	);
 
 	register_taxonomy( 'rodzaj', 'wydarzenie', $args );

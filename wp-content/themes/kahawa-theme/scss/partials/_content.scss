@@ -1,6 +1,6 @@
 /**** styles for general page content ****/
 
-.page-template-template-subpage, .page-template-template-main {
+.page-template-template-subpage, .page-template-template-main, .tax-rodzaj {
     .content-area {
         float: none;
         width: 100%;
@@ -65,7 +65,8 @@
             width: 60vw;
             margin: 0 auto;
             @include largeScreen {
-                width: 30vw;
+                width: 25vw;
+                max-width: 300px;
             }
         }
     }
