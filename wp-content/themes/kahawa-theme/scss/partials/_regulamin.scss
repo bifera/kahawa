@@ -1,0 +1,12 @@
+ol {
+    list-style: none;
+    counter-reset: item;
+    li {
+        counter-increment: item;
+        &:before {
+            margin-right: 10px;
+            content: counters(item, ".") " ";
+            display: inline-block;
+        }
+    }
+}

@@ -16,17 +16,23 @@ get_header(); ?>
 
 <?php 
 if (has_post_thumbnail()) {
-    $image = get_the_post_thumbnail_url();
+    $image = get_post_thumbnail_id($post->ID);
+    $imageMobile = wp_get_attachment_image_src( $image, 'medium_large')[0];
+    $imageDesktop = wp_get_attachment_image_src( $image, 'full')[0];
 } else {
-    $image = get_stylesheet_directory_uri().'/images/hero.jpg';
+    $imageMobile = get_stylesheet_directory_uri().'/images/hero.jpg';
+    $imageDesktop = get_stylesheet_directory_uri().'/images/hero.jpg';
 }
 
 
 ?>
-
+<style>
+    .kahawa-hero {background-image: url(<?php echo $imageMobile;?>);}
+    @media screen and (min-width: 768px){.kahawa-hero {background-image: url(<?php echo $imageDesktop;?>);}}
+</style>
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-        <div class="kahawa-hero" style="background-image: url(<?php echo $image;?>);">
+        <div class="kahawa-hero">
             <div class="overlay" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/texture.svg);"></div>
             <?php 
             if (get_field('naglowek_rodzaj') == 'tekst') {
@@ -95,7 +101,7 @@ if (has_post_thumbnail()) {
                 <div class="col-third">
                     <div class="wydarzenie-tab">
                         <a href="<?php the_permalink(); ?>">
-                            <div><?php echo get_the_post_thumbnail($post->ID, array('650', '650'));?></div>
+                            <div><?php echo get_the_post_thumbnail($post->ID, 'wydarzenie');?></div>
                             <h2 class="wydarzenie-title title-as-link"><?php echo $title; ?></h2>
                             <div class="wydarzenie-details">
                                 <?php 

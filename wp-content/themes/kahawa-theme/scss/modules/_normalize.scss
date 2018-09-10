@@ -41,6 +41,16 @@ textarea {
     resize: none;
 }
 
+table {
+    thead, tbody {
+        tr {
+            th, td {
+                padding: ms(0);
+            }
+        }
+    }
+}
+
 .button, button, button.menu-toggle, button.alt, .button.alt, .button, input[type="submit"].button {
     &.button-open {
         background-color: transparentize($altColor, .55);

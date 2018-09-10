@@ -51,12 +51,68 @@
             font-size: ms(1);
             margin-right: ms(0);
         }
+        .phone {
+            position: relative;
+            bottom: 5px;
+        }
+        .kahawa-opening {
+            width: 100%;
+            @include largeScreen {
+                padding-right: ms(1);
+            }
+            span {
+                display: inline-block;
+                &.days {
+                    float: left;
+                }
+                &.hours {
+                    float: right;
+                }
+            }
+            &::after {
+                display: block;
+                clear: both;
+                content: "";
+            }
+        }
     }
     .kahawa-info {
         color: $darkgray;
         font-family: $headerFont;
-        font-weight: 300;
+        font-weight: 700;
         text-align: right;
         margin-top: 25px;
+    }
+    .footer-payment-logo {
+        display: inline-block;
+        position: relative;
+        top: 6px;
+        margin-right: 10px;
+        margin-top: ms(1);
+        @include largeScreen {
+            margin-right: ms(1);
+            margin-top: 0;
+        }
+    }
+}
+
+.menu-footer-container {
+    display: inline-block;
+    .menu {
+        margin: 25px 0 0;
+        li {
+            display: inline-block;
+            a {
+                font-weight: 700;
+                font-size: .875rem;
+                padding-right: 10px;
+                @include largeScreen{
+                    padding-right: ms(1);
+                }
+                &:hover {
+                    color: $linkColor;
+                }
+            }
+        }
     }
 }

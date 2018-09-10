@@ -34,7 +34,15 @@ if (get_post_type() == 'product') {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
         <link rel="profile" href="http://gmpg.org/xfn/11">
         <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-82683933-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+ 
+  gtag('config', 'UA-82683933-2');
+</script>
+       <meta name="google-site-verification" content="FcXMKUmGxxczlVRV7kga4z9Hy5VSQqnio6erl93iePs" />
         <?php wp_head(); ?>
     </head>
 
@@ -48,6 +56,7 @@ if (get_post_type() == 'product') {
             if (!is_page(get_option('page_on_front'))){ ?>
                 <div class="kahawa-hero" style="background-image:url(<?php echo $heroImage;?>);">
                      <div class="overlay" style="background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/texture.svg);"></div>
+                     <div class="header-container"><div class="col-full" id="proper-header-container"></div></div>
                 </div>
                 <?php }?>
             <header id="masthead" class="site-header" role="banner">

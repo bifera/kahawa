@@ -87,23 +87,13 @@
 }
 
 body:not(.home) {
+    .page-title, .subpage-title, .entry-title {
+        color: $white;
+    }
     .site-main {
         position: relative;
-        .woocommerce-products-header, .entry-header {
-            position: absolute;
-            top: -110px;
-            .page-title, .subpage-title, .entry-title {
-                color: $white;
-            }
-            +.entry-content {
-                padding-top: 40px;
-                @include largeScreen {
-                    padding-top: 80px;
-                }
-            }
-        }
     }
-    .widget-area {
+    .widget-area, .content-area {
         padding-top: 40px;
         @include largeScreen {
             padding-top: 80px;

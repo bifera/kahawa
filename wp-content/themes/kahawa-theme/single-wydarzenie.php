@@ -12,20 +12,14 @@ get_header(); ?>
 
         <?php while ( have_posts() ) : the_post();
 
-        if (get_field('wydarzenie_nazwa')) {
-            $title = get_field('wydarzenie_nazwa');
-        } else {
-            $title = get_the_title();
-        }
-
         ?>
         <div class="entry-header">
-            <h1 class="subpage-title"><?php echo $title; ?></h1>
+            <h1 class="subpage-title"><?php echo get_the_title();; ?></h1>
         </div>
         <div class="entry-content">
             <div class="entry-details kahawa-row">
                 <div class="entry-thumbnail col-third">
-                    <?php echo get_the_post_thumbnail($post->ID, array('650', '650')); ?>
+                    <?php echo get_the_post_thumbnail($post->ID, 'wydarzenie'); ?>
                 </div>
                 <div class="entry-date col-three-quart">
                     <?php 

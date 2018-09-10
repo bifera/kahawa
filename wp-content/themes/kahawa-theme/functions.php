@@ -5,13 +5,18 @@ include('custom-posts/custom-posts.php');
 /* add custom theme fonts */
 wp_enqueue_style( 'kahawa-custom-fonts', 'https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Open+Sans+Condensed:300,300i,700&amp;subset=latin-ext');
 
+function kahawa_child_styles(){
+    wp_dequeue_style('storefront-fonts');
+}
+add_action( 'wp_enqueue_scripts', 'kahawa_child_styles', 999);
+
 
 /* add custom scripts */
-wp_enqueue_script( "kahawa-scripts", get_stylesheet_directory_uri().'/scripts/app.js' );
+wp_enqueue_script( "kahawa-scripts", get_stylesheet_directory_uri().'/scripts/app.min.js', array ( 'jquery'), '1.0', true );
 
 function kahawa_custom_image_sizes(){
     add_theme_support( 'post-thumbnails' );
-    add_image_size('wydarzenie', 650, 650, true);
+    add_image_size('wydarzenie', 600, 600, true);
 }
 add_action( 'after_setup_theme', 'kahawa_custom_image_sizes' );
 
@@ -54,7 +59,7 @@ if ( ! function_exists( 'kahawa_display_custom_header_cart' ) ) {
 if ( ! function_exists( 'kahawa_site_branding' ) ) {
     function kahawa_site_branding(){ ?>
 <div class="site-branding">
-    <a href="<?php echo site_url(); ?>" title="Kahawa Kawa i Książka"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.png" alt="Kahawa Kawa i Książka"></a>
+    <a href="<?php echo site_url(); ?>" title="Kahawa Kawa i Książka"><img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo-black.svg" alt="Kahawa Kawa i Książka"></a>
 </div> <?php
                                    }
 }
@@ -98,7 +103,11 @@ if ( ! function_exists( 'kahawa_footer_credit' ) ) {
 	 */
     function kahawa_footer_credit() {
         if (storefront_is_woocommerce_activated()){ ?>
-<div class="kahawa-info">&copy;&nbsp;<?php echo get_bloginfo('name')." ".date("Y"); ?></div>
+<div class="kahawa-row">
+    <div class="col-half"><?php wp_nav_menu(array('menu'=> 'Footer Menu'))?></div>
+    <div class="col-half kahawa-info">&copy;&nbsp;<?php echo get_bloginfo('name')." ".date("Y"); ?></div>
+    <div class="col-half payments-container"><img class="footer-payment-logo" src="<?php echo get_stylesheet_directory_uri();?>/images/dp_logo_alpha.png" width="75" height="22" alt="dotpay payment info"><img class="footer-payment-cards" src="<?php echo get_stylesheet_directory_uri();?>/images/payment_cards.jpg" alt="payment methods"></div>
+</div>
 <?php 
                                                   }
     }
@@ -166,3 +175,43 @@ function kahawa_custom_footer_appearance() {
     remove_action( 'storefront_footer', 'storefront_credit', 20 );
     add_action( 'storefront_footer', 'kahawa_footer_credit', 20 );
 }
+
+// ------- register kahawa footer menu
+
+
+add_action( 'after_setup_theme', 'register_my_menu' );
+function register_my_menu() {
+    register_nav_menu( 'footer-menu', __( 'Footer Menu', 'kahawa' ) );
+}
+
+/*****************************************/
+/******* fix shipping & payment **********/
+/*****************************************/
+
+function my_custom_available_payment_gateways( $gateways ) {
+    $chosen_shipping_rates =(array) WC()->session->get( 'chosen_shipping_methods' );
+
+    if ( in_array( 'flat_rate:10', $chosen_shipping_rates ) ) :
+    unset( $gateways['cod'] );
+    unset ( $gateways['other_payment'] );
+
+    elseif ( in_array( 'flat_rate:13', $chosen_shipping_rates ) ) :
+    unset( $gateways['dotpay'] );
+    unset ( $gateways['other_payment'] );
+
+    elseif ( in_array( 'flat_rate:11', $chosen_shipping_rates ) ) :
+    unset( $gateways['cod'] );
+    unset ( $gateways['other_payment'] );
+
+    elseif ( in_array( 'flat_rate:14', $chosen_shipping_rates ) ) :
+    unset( $gateways['dotpay'] );
+    unset ( $gateways['other_payment'] );
+
+    elseif ( in_array( 'local_pickup:4', $chosen_shipping_rates ) ) :
+    unset( $gateways['dotpay'] );
+    unset ( $gateways['cod'] );
+
+    endif;
+    return $gateways;
+}
+add_filter( 'woocommerce_available_payment_gateways', 'my_custom_available_payment_gateways', 1 );

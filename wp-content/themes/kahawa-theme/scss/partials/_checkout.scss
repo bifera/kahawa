@@ -1,16 +1,25 @@
 /* styles for checkout pages */
 
+
 .checkout {
     .woocommerce-billing-fields, .woocommerce-additional-fields {
         label {
             font-weight: 600;
-            color: $wc-gray;
+            color: $darkgray;
+            line-height: ms(1);
+            margin-bottom: ms(0);
         }
         input {
-            background-color: $wc-lightgray;
+            background-color: $white;
         }
         .required {
             text-decoration: none;
+        }
+    }
+    .woocommerce-billing-fields {
+        &__field-wrapper {
+            background-color: #fdfdfd;
+            padding: ms(0);
         }
     }
     #order_review_heading {

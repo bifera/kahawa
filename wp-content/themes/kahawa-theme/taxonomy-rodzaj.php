@@ -44,7 +44,7 @@ $term = $thisTerm->slug;
                     <div class="col-third">
                         <div class="wydarzenie-tab">
                             <a href="<?php the_permalink(); ?>">
-                                <div><?php echo get_the_post_thumbnail($post->ID, array('650', '650'));?></div>
+                                <div><?php echo get_the_post_thumbnail($post->ID, 'wydarzenie');?></div>
                                 <h2 class="wydarzenie-title title-as-link"><?php echo $title; ?></h2>
                                 <div class="wydarzenie-details">
                                     <?php 

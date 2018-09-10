@@ -16,7 +16,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 	<div class="kahawa-accent-block">
-	    <div class="col-full">
+	    <div class="col-full kahawa">
 	        <div class="kahawa-color-bar"></div>
 	    </div>
 	</div>
@@ -31,7 +31,6 @@
 			 * @hooked storefront_credit         - 20
 			 */
 			do_action( 'storefront_footer' ); ?>
-
 		</div><!-- .col-full -->
 		
 	</footer><!-- #colophon -->
@@ -41,8 +40,6 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHRBarQXICjLTst4cLaJ56qyIZXJU-s4M&callback=initMap">
-    </script>
+
 </body>
 </html>

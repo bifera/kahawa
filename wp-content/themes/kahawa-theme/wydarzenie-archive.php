@@ -22,7 +22,7 @@ get_header();
             foreach($eventTypes as $eventType){
                 $eventTypeID = $eventType->term_id; ?>
             <section class="kahawa-events-section event-<?php echo $eventType->slug;?>">
-               <a class="kahawa-event-link event-<?php echo $eventType->slug;?>" href="<?php echo get_category_link($eventTypeID); ?>"><h2><?php echo $eventType->name;?></h2></a>
+               <a class="kahawa-event-link event-<?php echo $eventType->slug;?>" href="<?php echo get_term_link($eventTypeID); ?>"><h2><?php echo $eventType->name;?></h2></a>
                 <?php
                 $queryArgs = array(
                     'post_type'=>'wydarzenie',
@@ -53,7 +53,7 @@ get_header();
                     <div class="col-third">
                         <div class="wydarzenie-tab">
                             <a href="<?php the_permalink(); ?>">
-                                <div><?php echo get_the_post_thumbnail($post->ID, array('650', '650'));?></div>
+                                <div><?php echo get_the_post_thumbnail($post->ID, 'wydarzenie');?></div>
                                 <h2 class="wydarzenie-title title-as-link"><?php echo $title; ?></h2>
                                 <div class="wydarzenie-details">
                                     <?php 
