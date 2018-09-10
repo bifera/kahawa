@@ -78,6 +78,97 @@ if (has_post_thumbnail()) {
             }
             ?>
         </div>
+        <?php 
+        if (have_rows('menu_leftcol') || have_rows('menu_leftcol')) {
+            echo '<h2>got those fields</h2>'; ?>
+        <div class="kahawa-content col-full">
+            <div class="kahawa-menu">
+                <?php 
+            if (have_rows('menu_leftcol')) { ?>
+                <div class="kahawa-menu--left">
+                    <?php
+                while (have_rows('menu_leftcol')) {
+                    the_row();
+                    if (get_row_layout('menu_leftcol_head')) { 
+                        $menuHeading = get_sub_field('menu_leftcol_head_content'); 
+                        if ($menuHeading) { ?>
+                    <div class="kahawa-menu--heading"><?php echo $menuHeading; ?></div>
+                    <?php } ?>
+                    <?php }
+                    if (get_row_layout('menu_leftcol_els')){
+                        if (have_rows('menu_leftcol_el')) { ?>
+                    <div class="kahawa-menu--product-wrapper">
+                        <?php 
+                            while (have_rows('menu_leftcol_el')) {
+                                the_row(); 
+                                $productName = get_sub_field('menu_leftcol_el_prod');
+                                $productPrice = get_sub_field('menu_leftcol_el_price');
+                        ?>
+                        <div class="kahawa-menu--product">
+                            <?php if ($productName) { ?>
+                            <div class="product--name <?php if (!$productPrice) { echo 'noprice'; } ?>"><?php echo $productName; ?></div>
+                            <?php } ?>
+                            <?php if ($productPrice) { ?>
+                            <div class="product--price"><?php echo $productPrice; ?></div>
+                            <?php } ?>
+                        </div>
+                        <?php 
+                            } ?>
+                    </div>
+                    <?php 
+                        }
+                    ?>
+
+                    <?php  
+                    }
+                } ?>
+                </div>
+                <?php
+            }
+
+            if (have_rows('menu_rghtcol')) { ?>
+                <div class="kahawa-menu--right">
+                    <?php
+                while (have_rows('menu_rghtcol')) {
+                    the_row();
+                    if (get_row_layout('menu_rghtcol_head')) {
+                        $menuHeading = get_sub_field('menu_rghtcol_head_content');
+                        if ($menuHeading) { ?>
+                    <div class="kahawa-menu--heading"><?php echo $menuHeading; ?></div>
+                    <?php } ?>
+                    <?php }
+                    if (get_row_layout('menu_rghtcol_els')) { 
+                        if (have_rows('menu_rghtcol_el')) { ?>
+                    <div class="kahawa-menu--product-wrapper">
+                        <?php 
+                            while (have_rows('menu_rghtcol_el')) {
+                                the_row();
+                                $productName = get_sub_field('menu_rghtcol_el_prod');
+                                $productPrice = get_sub_field('menu_rghtcol_el_price'); ?>
+
+                        <div class="kahawa-menu--product">
+                            <?php if ($productName) { ?>
+                            <div class="product--name <?php if (!$productPrice) { echo 'noprice'; } ?>"><?php echo $productName; ?></div>
+                            <?php } ?>
+                            <?php if ($productPrice) { ?>
+                            <div class="product--price"><?php echo $productPrice; ?></div>
+                            <?php } ?>
+                        </div>
+                        <?php
+
+                            } ?>
+                    </div>
+                    <?php
+                        } 
+                    }
+                } ?>
+                </div>
+                <?php
+            } ?>
+            </div>
+        </div>
+        <?php } ?>
+
         <?php if (get_field('wydarzenia_wyswietlic')) {?>
         <div class="kahawa-content col-full">
             <h2 class="title-as-link"><a href="<?php echo get_page_link(61);?>"><?php echo get_field('wydarzenia_naglowek');?></a></h2>

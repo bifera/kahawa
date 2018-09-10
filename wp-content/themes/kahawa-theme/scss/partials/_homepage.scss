@@ -1,12 +1,55 @@
 /* styles for homepage content */
 
 .kahawa-menu {
+    @extend %cf;
     @include largeScreen {
         max-width: 900px;
         margin: 40px auto;
         padding: 40px 60px;
         border: 1px solid transparentize($secondaryColor, .6);
         border-radius: 5px;
+    }
+    &--left, &--right {
+        @include largeScreen {
+            width: 50%;
+            float: left;
+        }
+    }
+    &--heading {
+        font-family: $headerFont;
+        font-weight: 700;
+        background-color: transparentize($accentColor, .75);
+        border-top: 1px solid $darkgray;
+        font-size: .8125rem;
+        padding: 10px;
+        @include largeScreen {
+            font-size: 1rem;
+            padding: 1rem 1.5rem;
+        }
+    }
+    &--product-wrapper {
+        @extend %cf; 
+    }
+    .product--name {
+        width: 75%;
+        &.noprice {
+            width: 100%;
+            font-size: .875rem;
+            padding-left: 2rem;
+        }
+    }
+    .product--price {
+        width: 25%;
+    }
+    .product--name, .product--price {
+        background-color: transparent;
+        font-size: .8125rem;
+        padding: 10px 0;
+        @include largeScreen {
+            font-size: 1rem;
+            padding: 1rem 1.5rem;
+            float: left;
+        }
     }
     tbody {
         tr {

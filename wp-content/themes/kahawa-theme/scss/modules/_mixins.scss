@@ -21,7 +21,7 @@
 /**** extend silent classes ****/
 
 %cf {
-    &::after {
+    &::before, &::after {
         display: block;
         clear: both;
         content: "";
